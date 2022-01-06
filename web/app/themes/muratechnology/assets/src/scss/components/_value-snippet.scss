@@ -1,0 +1,46 @@
+.value-snippet {
+    @apply pl-10 lg:pl-16;
+    @apply relative w-full;
+    .line {
+        @apply border-l-4 border-white h-full w-4 absolute left-0 top-0; 
+    }
+    .value {
+        @apply -top-3 lg:-top-5 font-medium relative text-7xl lg:text-12xl;
+    }
+    p {
+        @apply text-xl lg:text-2xl;
+    }
+    &.accent-orange {
+        @apply text-brand-orange;
+        .line {
+            @apply border-brand-orange
+        }
+    }
+    &.accent-orange-black {
+        @apply text-brand-orange;
+        .line {
+            @apply border-brand-orange
+        }
+        p {
+            @apply text-brand-black;
+        }
+    }
+
+    &.big-label {
+        .text {
+            .value {
+                @apply text-5xl lg:text-6xl -top-1;
+            }
+            p {
+                @apply font-medium text-3xl lg:text-5xl;
+            }
+        }
+    }
+    &.long-value {
+        .text {
+            .value {
+                font-size: 80px;
+            }
+        }
+    }
+}

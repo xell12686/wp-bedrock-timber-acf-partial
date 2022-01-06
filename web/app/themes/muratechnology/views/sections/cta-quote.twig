@@ -1,0 +1,37 @@
+{# Section Props #}
+{% set cta = section.cta %}
+{% set quote = section.quote %}
+
+<section class="cta {{ space_around_image ? 'space-around-image' : '' }}" style="background-color:{{ bg_color }}">
+    <div class="content grid grid-cols-12 gap-20 mx-20 my-20">
+        <div class="img-col col-span-12 xl:col-span-6">
+            <div class="generic-text">
+                <h2>{{ cta.title }} </h2>
+                <div class="copy">
+                    {{ cta.copy }}
+                </div>
+                {{ include('components/button.twig', { 
+                    label: cta.button_label, 
+                    classes: 'btn-arrow thin bg-brand-yellow', 
+                    url: link
+                }) }}
+                <div class="copy-after">
+                    {{ cta.copy_after_button }}
+                </div>           
+            </div>
+        </div>
+
+        <div class="text-col col-span-12 xl:col-span-6 content-center self-center">
+            <div class="text-wrap generic-text max-w-md">
+                <h2>{{ title }}</h2>
+                <p>{{ copy }}</p>
+
+                {{ include('components/button.twig', { 
+                    label: button.label, 
+                    classes: 'btn-arrow thin ' ~ button_classes, 
+                    url: link
+                }) }}
+            </div>
+        </div>
+    </div>
+</section>

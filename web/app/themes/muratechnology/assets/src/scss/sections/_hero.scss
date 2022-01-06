@@ -1,0 +1,70 @@
+.hero {
+    @apply bg-no-repeat bg-cover bg-top text-white relative;
+    .background {
+        @apply absolute w-full h-full object-cover object-center z-0;
+    }
+    .overlay {
+        @apply bg-black absolute h-full w-full opacity-50 z-0;
+    }
+    .content {
+        @apply flex flex-col py-16 lg:pt-36 lg:pb-32 lowheight:pt-24 justify-between content-between gap-11 relative;
+        min-height: calc(100vh - #{$headerHeight});
+    }
+}
+
+.hero-title {
+  @apply text-2xl uppercase mb-6 lg:mb-12;
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1536px) {
+  .hero-title {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+}
+
+@media (max-height: 860px) and (min-width: 1024px) {
+  .hero-title {
+    font-size: 2.75rem;
+  }
+}
+
+.video-overlay {
+  @apply hidden opacity-0 inset-0 w-screen h-screen;
+  background-color: rgba(black, 0.8);
+  transition: all 1s ease-in-out;
+  &.active {
+    @apply flex items-center justify-center;
+    position: fixed;
+  }
+  &.shown {
+    @apply opacity-100;
+  }
+  .video-wrap {
+    @apply w-auto h-auto flex relative;
+    max-height: 80vh;
+    margin: 60px;
+    .wp-video {
+      @apply m-0;
+      width: 80vw !important;
+      .video-element {
+        @apply w-full h-full;
+      }
+    }
+  }
+  .close-video {
+    @apply bg-cover bg-no-repeat absolute;
+    background-image: url(../img/close-white.svg);
+    width: 23px;
+    height: 23px;
+    top: -30px;
+    right: -30px;
+  }
+}

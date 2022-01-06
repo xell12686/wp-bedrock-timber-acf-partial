@@ -1,0 +1,47 @@
+{# Section Props #}
+
+{% set image = section.image %}
+{% set pre_title = section.pre_title ?? null  %}
+{% set title = section.title  %} 
+{% set copy = section.copy %}
+{% set value = section.value %}
+{% set value_unit = section.value_unit %}
+{% set value_label = section.value_label %}
+{% set reverse_count = section.reverse_count ?? false %}
+{% set big_label = section.big_label %}
+{% set cta_buttons = section.cta_buttons ?? null  %}
+
+<section class="stats bg-brand-grey-light">
+    <div class="content grid grid-cols-12">
+        <div class="img-col col-span-12 md:col-span-6 bg-brand-orange order-last relative">
+            {{ include('components/picture.twig', { 
+                classes: 'object-cover object-center h-full w-full', 
+                image_url: image.url
+            }) }}            
+        </div>
+
+        <div class="text-col col-span-12 md:col-span-6 content-center  self-center">
+            <div class="text-wrap generic-text">
+                {% if pre_title %}
+                    <span class="pre-title">{{ pre_title }}</span>
+                {% endif %}
+                <h2>{{ title }}</h2>
+                <p>{{ copy }}</p>
+                {% if value %}
+
+                    {{ include('components/value-snippet.twig', { 
+                        value: value,
+                        value_unit: value_unit,
+                        label: value_label,
+                        big_label: big_label,
+                        accent: 'orange-black',
+                        add_class: 'mt-9',
+                        animate_count: true,
+                        reverse_count: reverse_count
+                    }) }}                
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

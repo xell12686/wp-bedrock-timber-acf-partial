@@ -1,0 +1,44 @@
+{# Section Props #}
+
+{% set pre_title = section.pre_title  %}
+{% set title = section.title %}
+
+<section class="faq-short-listing">
+    <div class="container">
+        <div class="grid grid-cols-12 gap-4">
+            <div class="col-span-12 generic-text">
+                <span class="pre-title">{{ pre_title }}</span>
+                <h2 class="uppercase">{{ title }}</h2>
+            </div>
+            <div class="col-span-12 ">
+                <ul class="faq-list">
+                    {% for post in latest_faqs %}
+
+                        {# {% set categories = post.terms('faq_categories') %} #}
+
+                        <li class="item">
+                            <div class="flex justify-between header" role="button" aria-pressed="false">
+                                <div class="generic-text">
+                                    <h3>{{ post.title }}</h3>
+                                </div>
+                                <div class="icon">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="body hidden">
+                                <div class="description">
+                                    {# {{ post.custom.answer }} #}
+                                    Maecenas a lacus mauris. In at libero dolor, Duis lacinia, eros vel hendrerit egestas, nisi sem blandit ante, ut porta nunc. Nulla hendrerit varius sem id commodo.
+                                </div>
+                            </div>
+                        </li>
+                    
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+

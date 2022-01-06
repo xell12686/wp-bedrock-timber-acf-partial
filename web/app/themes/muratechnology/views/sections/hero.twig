@@ -1,0 +1,70 @@
+{# Section Default Props #}
+{% set bg_image_url = section.background_image.url ?? asset('img/stock/office.jpg')  %}
+{% set bg_image_alt = section.background_image.alt ?? 'background image'  %}
+{% set pre_title = section.pre_title ?? false %}
+{% set title = section.title ?? false %}
+{% set copy = section.copy ?? null  %}
+{% set cta_type = section.cta_type ?? 'no-cta'  %}
+{% set video = section.video ?? null  %}
+{% set video_label = section.video_label ?? null  %}
+{% set video_label = section.video_label ?? null  %}
+{% set bottom_right_copy = section.bottom_right_copy ?? false  %}
+
+<section class="hero" >
+
+    {{ include('components/picture.twig', { 
+        classes: 'background', 
+        image_url: bg_image_url, 
+        image_alt: bg_image_alt, 
+    }) }}
+
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="content">
+            <div class="text-col xl:max-w-2xl xl:mr-auto">
+                {% if pre_title %}
+                    <span class="pre-title mb-4">{{ pre_title}}</span>
+                {% endif %}
+                {% if title %}
+                    <h1 class="hero-title">{{ title }} </h1>
+                {% endif %}
+                {% if copy and (bottom_right_copy == 0) %}
+                    <p class="text-base lg:text-2xl">{{ copy }}</p>
+                {% endif %}
+            </div>
+            {% if cta_type == 'play-video' %}
+                <div class="media-col flex items-center gap-5 xl:max-w-xl xl:ml-auto">
+                    <button class="btn-play play-video">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="71.999" viewBox="0 0 72 71.999">
+                            <path d="M36-1281a35.78,35.78,0,0,1-14.013-2.829,35.884,35.884,0,0,1-11.443-7.715,35.884,35.884,0,0,1-7.715-11.443A35.776,35.776,0,0,1,0-1317a35.77,35.77,0,0,1,2.829-14.012,35.879,35.879,0,0,1,7.715-11.443,35.884,35.884,0,0,1,11.443-7.715A35.78,35.78,0,0,1,36-1353a35.78,35.78,0,0,1,14.013,2.829,35.884,35.884,0,0,1,11.443,7.715,35.879,35.879,0,0,1,7.715,11.443A35.77,35.77,0,0,1,72-1317a35.776,35.776,0,0,1-2.829,14.013,35.884,35.884,0,0,1-7.715,11.443,35.884,35.884,0,0,1-11.443,7.715A35.78,35.78,0,0,1,36-1281Zm-7.2-47.519v24.479l21.6-12.239-21.6-12.24Z" transform="translate(0 1353)" fill="#fff" />
+                        </svg>
+                    </button>
+                    <div class="block">
+                        <span class="block capitalize text-2xl lg:text-4xl">{{ video_label }}</span>
+                        <span class="text-xs uppercase font-bold">Play video</span>
+                    </div>
+                </div>
+                {% if video %}
+                    {% set attr = {
+                        'mp4' : video.url,
+                        'preload' : 'auto',
+                        'muted': 'true',
+                        'class' : 'video-element'
+                    } %}
+                    <div class="video-overlay">
+                        <div class="video-wrap">
+                            <button class="close-video"></button>
+                            {{ fn('wp_video_shortcode', attr ) }}
+                        </div>
+                    </div>
+                {% endif %}
+
+            {% endif %}
+            {% if copy and bottom_right_copy %}
+                <div class="media-col flex items-center gap-5 max-w-xl lg:ml-auto">
+                    <p class="text-base lg:text-2xl">{{ copy }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

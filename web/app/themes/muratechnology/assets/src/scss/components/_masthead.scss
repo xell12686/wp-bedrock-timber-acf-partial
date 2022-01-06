@@ -1,0 +1,130 @@
+.masthead {
+    @apply bg-white text-gray-900 h-auto py-8 pb-10 relative transition; 
+	height: calc(0% + #{$headerHeight});
+	.container {
+		@apply px-5;
+	}
+	.site-logo {
+		@apply w-full h-auto;
+		max-width: 140px;
+		img {
+			@apply block w-full;
+			
+		}
+	}
+	.mobile-nav {
+		@apply absolute w-full left-0 z-10;
+		top: calc(0% + #{$headerHeight});
+	}
+}
+body.nav-hide {
+	padding-top: $headerHeight;
+	.masthead {
+		margin-top: calc(0px - #{$headerHeight});
+	}
+}
+
+ul.header-nav { 
+	@apply flex flex-wrap items-center font-semibold justify-center text-sm;
+	> li {
+		&.has-sub-menu {
+			@apply relative pr-4 flex items-center;
+			> a {
+				@apply pr-3;
+			}
+			button {
+				@apply w-4 h-4 block capitalize;
+				text-indent: -9999px;
+				background: url(../img/caret-down.svg) no-repeat center/contain;
+			}
+		}
+	}
+	li {
+		a {
+			@apply px-5;
+		}
+	}
+	.sub-menu {
+		@apply hidden;
+	}
+}
+
+.mobile-nav {
+	@apply bg-brand-yellow transform scale-0 
+	transition duration-150 ease-in-out origin-top-right p-10;
+	body.nav-expanded & {
+		@apply scale-100;
+	}
+	.header-nav  {
+		@apply flex-col;
+		> li {
+			@apply py-3 w-full text-left;
+		}
+
+	}
+}
+
+
+
+#nav-toggle {
+    @apply w-12 h-3 relative;
+	cursor: pointer;
+	span {
+        @apply bg-brand-black w-1/2 block absolute opacity-100 transform rotate-0 transition duration-200 ease-in cursor-pointer;
+        height: 2px;
+		&:nth-child(even) {
+			left: 50%;
+		}
+		&:nth-child(odd) {
+			left: 0px;
+		}
+		&:nth-child(1) {
+			top: 0px;
+		}
+		&:nth-child(2) {
+			top: 0px;
+		}
+		&:nth-child(3) {
+			bottom: 0;
+		}
+		&:nth-child(4) {
+			bottom: 0;
+		}
+	}
+}
+#nav-toggle.open {
+	span {
+		&:nth-child(1) {
+			-webkit-transform: rotate(45deg);
+			-moz-transform: rotate(45deg);
+			-o-transform: rotate(45deg);
+			transform: rotate(45deg);
+			left: 4px;
+			top: -2px;
+		}
+		&:nth-child(2) {
+			-webkit-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			-o-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+			left: calc(50% - 4px);
+			top: -2px;
+		}
+		&:nth-child(3) {
+			-webkit-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			-o-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+			left: 4px;
+			bottom: -4px;
+		}
+        &:nth-child(4) {
+			-webkit-transform: rotate(45deg);
+			-moz-transform: rotate(45deg);
+			-o-transform: rotate(45deg);
+			transform: rotate(45deg);
+			left: calc(50% - 4px);
+			bottom: -4px;
+		}
+	}
+}

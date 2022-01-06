@@ -1,0 +1,104 @@
+$boxHeight: 340px;
+
+.photo-grid {
+    .items {
+        @apply grid grid-cols-12;
+
+        .item {
+            @apply col-span-12 relative;
+            @media (min-width: 768px) {
+                @apply col-span-6;
+                height: $boxHeight;
+            }
+
+            @media (min-width: 1280px) {
+                @apply col-span-3;
+                &.wide {
+                    @apply col-span-6;
+                }
+            }
+
+            .background {
+                @apply absolute object-cover object-center h-full w-full;
+            }
+
+            .text {
+                @apply p-10 flex flex-col gap-2 text-white relative;
+                &.text-black {
+                    @apply text-brand-black;
+                }
+                span {
+                    font-size: 12px;
+                    @apply uppercase;
+                }
+                h3 {
+                    @apply text-lg mb-6;
+                }
+                p {
+                    @apply text-xs;
+                }
+                .tooltip-icon {
+                    background-image: url(../img/tooltip-icon-thin.svg);
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    position: relative;
+                    display: inline-block;
+                    width: 23px;
+                    height: 23px;
+                    margin-left: 5px;
+                    top: 5px;
+                    z-index: 10;
+                    .tooltip-text {
+                        position: absolute;
+                        text-align: left;
+                        width: 230px;
+
+                        top: calc(100% + 5px);
+                        right: -115px;
+
+                        color: black;
+                        text-transform: none;
+                        line-height: 1.4;
+                        visibility: hidden;
+                        background-color: white;
+                        border-radius: 6px;
+                        padding: 10px;
+                        z-index: 20;
+                    }
+                    &:hover .tooltip-text {
+                        visibility: visible;
+                    }
+                }
+            }
+
+            .video-box {
+                .video-wrap {
+                    @apply absolute inset-0 w-full h-full;
+                    transition: all 0.5s ease-in;
+                    z-index: 0;
+                    filter: brightness(70%);
+                }
+                .wp-video {
+                    height: 100%;
+                    width: 100% !important;
+                    .video-element {
+                        @apply w-full h-full object-cover;
+                        object-position: left top;
+                    }
+                }
+            }
+            @media (min-width: 1536px) {
+                &.wide {
+                    h3 {
+                        max-width: 60%;
+                    }
+
+                    p {
+                        max-width: 60%;
+                    }
+                }
+            }
+        }
+    }
+}

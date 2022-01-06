@@ -1,0 +1,53 @@
+{# Section Props #}
+
+{% set pre_title = section.pre_title  %}
+{% set title = section.title %}
+
+<section class="vacancies">
+    <div class="container">
+        <div class="grid grid-cols-12 gap-4">
+            <div class="col-span-12 lg:col-span-4 generic-text">
+                <span class="pre-title">{{ pre_title }}</span>
+                <h2 class="uppercase">{{ title }}</h2>
+            </div>
+            <div class="col-span-12 lg:col-span-8">
+                <ul class="vacancies-list">
+                    {% for post in latest_vacancies %}
+
+                        {% set categories = post.terms('vacancy_categories') %}
+
+                        <li class="item">
+                            <div class="flex justify-between header" role="button" aria-pressed="false">
+                                <div class="generic-text">
+                                    <div class="flex gap-2">
+                                        {% for category in categories %}
+                                            <span class="position-type">
+                                                {{ category }}
+                                            </span>
+                                        {% endfor %}
+                                    </div>
+                                    <h3>{{ post.title }}</h3>
+                                    {% if post.custom.salary  %}
+                                        <span class="salary">salary &euro; {{ post.custom.salary }} {{ post.custom.salary_rate }}</span>
+                                    {% endif %}
+                                </div>
+                                <div class="icon">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="body hidden">
+                                <div class="description">
+                                    {{ post.post_excerpt }}
+                                </div>
+                            </div>
+                        </li>
+                    
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+

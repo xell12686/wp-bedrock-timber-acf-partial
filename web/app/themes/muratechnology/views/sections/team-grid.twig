@@ -1,0 +1,73 @@
+{# Section Props #}
+{% set entries = section.entries %}
+{% set heading = section.heading %}
+
+<section class="team-grid">
+    {{ include('components/picture.twig', { 
+        image_url: asset('img/half-rings.png'),
+        classes: 'background absolute inset-0 w-full h-full object-cover object-top'   
+    }) }}
+    <div class="heading-box">
+        <h2>{{ heading }}</h2>
+    </div>
+    <div class="grid-wrap flex flex-row gap-10">
+
+        <div class="grid-nav">
+            <ul>
+                <li class="active" data-slider="team-leadership-swiper"><span>Leadership</span></li>
+                <li data-slider="team-board-swiper"><span>The Board</span></li>
+            </ul>
+        </div>
+
+        <div class="grid-items">
+
+            <div class="team-leadership-swiper">
+
+                <div class="swiper-wrapper">
+                    {% for post in latest_team_members_leadership %}
+                        <div class="item swiper-slide">
+                            <a href="{{ post.link }}" class="">
+                                {{ include('components/picture.twig', { 
+                                    classes: 'object-cover object-center h-full', 
+                                    image_url: post.thumbnail.src, 
+                                    image_alt: post.thumbnail.alt,
+                                    max_small: true
+                                }) }}
+                                <div class="text">
+                                    <h3 class="post-title"> {{ fn('ucfirst', post.title ) }} </h3>
+                                    <span class="position">{{ post.custom.position }} </span>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}  
+                </div>
+            </div>
+
+            <div class="team-board-swiper hidden">
+
+                <div class="swiper-wrapper">
+                    {% for post in latest_team_members_board %}
+                        <div class="item swiper-slide">
+                            <a href="{{ post.link }}" class="">
+                                {{ include('components/picture.twig', { 
+                                    classes: 'object-cover object-center h-full', 
+                                    image_url: post.thumbnail.src, 
+                                    image_alt: post.thumbnail.alt,
+                                    max_small: true
+                                }) }}
+                                <div class="text">
+                                    <h3 class="post-title"> {{ fn('ucfirst', post.title ) }} </h3>
+                                    <span class="position">{{ post.custom.position }} </span>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}  
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

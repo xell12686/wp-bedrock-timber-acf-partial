@@ -1,0 +1,154 @@
+
+$topHeight: 0;
+$topHeight2xl: 350px;
+.stages {
+    transition: all .5s ease-in-out;
+    @media (max-width: 640px) {
+        @apply pt-10;
+    }
+    * {
+        transition: all .5s ease-in-out;
+    }
+    &:hover {
+        .panel-item .text:after {
+            height: 0px;
+        }
+        .intro {
+            p {
+                @apply opacity-60;
+            }
+        }
+    }
+    .intro {
+        @apply p-7 md:p-10 lg:px-14 lg:py-24 2xl:p-24;
+        height:auto;
+    }
+
+    .panels {
+        @apply items-stretch;
+    }
+
+    .panel-item {
+        @apply relative;
+        flex-basis: 33.33%;
+        &:before {
+            @apply w-full absolute left-0 bg-brand-yellow opacity-0;
+            transition: all .5s ease-in-out;
+            content: "";
+            top: 0;
+            left: 0;
+            height: 100%;
+            // top: -$topHeight;
+            // height: calc(100% + $topHeight);
+            @media (min-width: 1536px) {
+                // top: -$topHeight2xl;
+                // height: calc(100% + $topHeight2xl);
+            }
+        }
+        // .top {
+        //     @apply pb-0 px-10 lg:px-14 2xl:px-24 pt-10 lg:pt-14 2xl:pt-24;
+        //     @apply  w-full absolute left-0 opacity-0 overflow-hidden;
+        //     transition: all 1.3s ease-in-out;
+        //     height: $topHeight;
+        //     top: -$topHeight;
+        //     @media (min-width: 1536px) {
+        //         top: -$topHeight2xl;
+        //         height: $topHeight2xl;
+        //     }
+        // }
+        .text {
+            @apply p-10 lg:px-14 2xl:px-24 pb-24;
+            @apply flex flex-col gap-7 relative h-full;
+
+            .count-title {
+              @apply flex flex-col;
+            }
+
+            .count {
+                @apply text-brand-grey font-medium relative text-6xl lg:text-9xl;
+            }
+            .title {
+                @apply text-xl lg:text-2xl;
+                max-width: 250px;
+            }
+            &:after {
+                @apply block absolute top-0 right-0 h-80;
+                transition: all .5s ease-in-out;
+                content: "";
+                width: 1px;
+                border-left: 1px solid #454545;
+            }
+            .copy {
+                @apply opacity-0;
+            }
+        }
+        &:last-child text {
+            &:after {
+                content: none;
+            }
+        }
+        &.hover {
+            flex-basis: calc(33.33% + 48px);
+            &:before {
+                @apply opacity-100;
+            }
+            // .top {
+            //     @apply opacity-100;
+            // }
+            .text {
+                padding-right: calc(48px * 2);
+                .count {
+                    @apply text-brand-black;
+                }
+                .copy {
+                    @apply opacity-100;
+                }
+            }
+            @media (min-width: 1536px) {
+                flex-basis: calc(33.33% + 96px);
+                .text {
+                    padding-right: calc(96px * 2);
+                }
+            }
+        }
+    }
+}
+
+.stages-slider {
+    @apply px-7 md:px-11 pt-7 pb-11 md:py-11  flex flex-col gap-10 bg-brand-yellow text-brand-black;
+    .stages-img {
+        @apply relative h-auto overflow-hidden w-full;
+        padding-top: 56%;
+        .img-wrap {
+            @apply w-full inset-0 m-auto absolute w-full opacity-0;
+            img {
+                @apply block;
+            }
+            &.active {
+                @apply opacity-100;
+            }
+        }
+    }
+    .stages-nav {
+        @apply flex justify-items-start gap-7;
+        .count {
+            @apply opacity-40 font-medium cursor-pointer;
+            font-size: 50px;
+            &.active {
+                @apply opacity-100;
+            }
+        }
+    }
+    .text {
+        @apply p-0 gap-7 flex-col hidden;
+        .title {
+            @apply text-xl font-medium;
+        }
+        &.active {
+            @apply flex;
+        }
+        p {
+            @apply mb-0;
+        }
+    }
+}

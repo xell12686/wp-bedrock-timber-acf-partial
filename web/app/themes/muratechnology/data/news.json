@@ -1,0 +1,212 @@
+[
+    {
+        "id": 1,
+        "title": "at turpis donec posuere metus vitae ipsum aliquam non",
+        "excerpt": "Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.",
+        "date": "13.10.2020",
+        "post_img": "../assets/dist/img/stock/news-1.jpg"
+    },
+    {
+        "id": 2,
+        "title": "pede justo lacinia eget tincidunt eget tempus vel pede morbi",
+        "excerpt": "Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
+        "date": "28.07.2021",
+        "post_img": "../assets/dist/img/stock/news-2.jpg"
+    },
+    {
+        "id": 3,
+        "title": "felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl",
+        "excerpt": "Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum.",
+        "date": "25.03.2021",
+        "post_img": "../assets/dist/img/stock/news-3.jpg"
+    },
+    {
+        "id": 4,
+        "title": "aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper",
+        "excerpt": "Nam nulla.",
+        "date": "23.02.2021",
+        "post_img": "../assets/dist/img/stock/news-2.jpg"
+    },
+    {
+        "id": 5,
+        "title": "dolor quis odio consequat varius integer ac leo pellentesque ultrices",
+        "excerpt": "Proin at turpis a pede posuere nonummy. Integer non velit.",
+        "date": "03.05.2021",
+        "post_img": "../assets/dist/img/stock/news-1.jpg"
+    },
+    {
+        "id": 6,
+        "title": "tortor duis mattis egestas metus aenean fermentum donec",
+        "excerpt": "Etiam vel augue. Vestibulum rutrum rutrum neque.",
+        "date": "25.07.2021",
+        "post_img": "../assets/dist/img/stock/news-3.jpg"
+    },
+    {
+        "id": 7,
+        "title": "nam nulla integer pede justo lacinia eget tincidunt eget tempus",
+        "excerpt": "Vivamus vestibulum sagittis sapien.",
+        "date": "28.07.2021",
+        "post_img": "../assets/dist/img/stock/news-1.jpg"
+    },
+    {
+        "id": 8,
+        "title": "sit amet cursus id turpis",
+        "excerpt": "Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
+        "date": "08.03.2021",
+        "post_img": "../assets/dist/img/stock/news-1.jpg"
+    },
+    {
+        "id": 9,
+        "title": "primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam",
+        "excerpt": "Etiam pretium iaculis justo. In hac habitasse platea dictumst.",
+        "date": "26.06.2021",
+        "post_img": "../assets/dist/img/stock/news-2.jpg"
+    },
+    {
+        "id": 10,
+        "title": "diam neque vestibulum eget vulputate ut ultrices vel",
+        "excerpt": "Aenean sit amet justo.",
+        "date": "10.07.2021",
+        "post_img": "../assets/dist/img/stock/news-1.jpg"
+    },
+    {
+        "id": 11,
+        "title": "eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim",
+        "excerpt": "Pellentesque ultrices mattis odio. Donec vitae nisi.",
+        "date": "10.01.2021",
+        "post_img": "../assets/dist/img/stock/news-1.jpg"
+    },
+    {
+        "id": 12,
+        "title": "vulputate justo in blandit ultrices enim lorem ipsum",
+        "excerpt": "Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",
+        "date": "04.04.2021",
+        "post_img": "../assets/dist/img/stock/news-3.jpg"
+    },
+    {
+        "id": 13,
+        "title": "et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam",
+        "excerpt": "Nulla facilisi.",
+        "date": "02.09.2020",
+        "post_img": "../assets/dist/img/stock/news-1.jpg"
+    },
+    {
+        "id": 14,
+        "title": "nisl aenean lectus pellentesque eget nunc",
+        "excerpt": "Maecenas pulvinar lobortis est. Phasellus sit amet erat.",
+        "date": "25.01.2021",
+        "post_img": "../assets/dist/img/stock/news-1.jpg"
+    },
+    {
+        "id": 15,
+        "title": "in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor",
+        "excerpt": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.",
+        "date": "15.01.2021",
+        "post_img": "../assets/dist/img/stock/news-1.jpg"
+    },
+    {
+        "id": 16,
+        "title": "venenatis non sodales sed tincidunt",
+        "excerpt": "Nulla ut erat id mauris vulputate elementum.",
+        "date": "04.12.2020",
+        "post_img": "../assets/dist/img/stock/news-2.jpg"
+    },
+    {
+        "id": 17,
+        "title": "dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non",
+        "excerpt": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "date": "03.08.2021",
+        "post_img": "../assets/dist/img/stock/news-3.jpg"
+    },
+    {
+        "id": 18,
+        "title": "eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim",
+        "excerpt": "Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",
+        "date": "20.05.2021",
+        "post_img": "../assets/dist/img/stock/news-2.jpg"
+    },
+    {
+        "id": 19,
+        "title": "duis bibendum morbi non quam nec dui",
+        "excerpt": "Morbi non lectus.",
+        "date": "11.01.2021",
+        "post_img": "../assets/dist/img/stock/news-1.jpg"
+    },
+    {
+        "id": 20,
+        "title": "gravida nisi at nibh in",
+        "excerpt": "Nam tristique tortor eu pede.",
+        "date": "26.01.2021",
+        "post_img": "../assets/dist/img/stock/news-2.jpg"
+    },
+    {
+        "id": 21,
+        "title": "vel accumsan tellus nisi",
+        "excerpt": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor.",
+        "date": "08.05.2021",
+        "post_img": "../assets/dist/img/stock/news-1.jpg"
+    },
+    {
+        "id": 22,
+        "title": "scelerisque quam turpis adipiscing",
+        "excerpt": "Nulla justo.",
+        "date": "25.05.2021",
+        "post_img": "../assets/dist/img/stock/news-3.jpg"
+    },
+    {
+        "id": 23,
+        "title": "cursus vestibulum proin eu mi",
+        "excerpt": "Morbi porttitor lorem id ligula.",
+        "date": "08.04.2021",
+        "post_img": "../assets/dist/img/stock/news-1.jpg"
+    },
+    {
+        "id": 24,
+        "title": "consequat ut nulla sed accumsan felis ut at dolor quis odio consequat",
+        "excerpt": "Etiam pretium iaculis justo.",
+        "date": "16.05.2021",
+        "post_img": "../assets/dist/img/stock/news-1.jpg"
+    },
+    {
+        "id": 25,
+        "title": "consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis",
+        "excerpt": "In blandit ultrices enim.",
+        "date": "24.09.2020",
+        "post_img": "../assets/dist/img/stock/news-2.jpg"
+    },
+    {
+        "id": 26,
+        "title": "mi nulla ac enim in tempor turpis",
+        "excerpt": "In hac habitasse platea dictumst.",
+        "date": "30.09.2020",
+        "post_img": "../assets/dist/img/stock/news-1.jpg"
+    },
+    {
+        "id": 27,
+        "title": "id lobortis convallis tortor risus dapibus",
+        "excerpt": "Suspendisse potenti.",
+        "date": "29.04.2021",
+        "post_img": "../assets/dist/img/stock/news-1.jpg"
+    },
+    {
+        "id": 28,
+        "title": "pulvinar sed nisl nunc rhoncus dui vel sem",
+        "excerpt": "Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.",
+        "date": "24.01.2021",
+        "post_img": "../assets/dist/img/stock/news-3.jpg"
+    },
+    {
+        "id": 29,
+        "title": "commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer",
+        "excerpt": "In eleifend quam a odio.",
+        "date": "22.09.2020",
+        "post_img": "../assets/dist/img/stock/news-1.jpg"
+    },
+    {
+        "id": 30,
+        "title": "ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna",
+        "excerpt": "Ut tellus. Nulla ut erat id mauris vulputate elementum.",
+        "date": "24.09.2020",
+        "post_img": "../assets/dist/img/stock/news-2.jpg"
+    }
+]

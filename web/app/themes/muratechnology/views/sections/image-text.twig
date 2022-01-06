@@ -1,0 +1,58 @@
+{# Section Props #}
+{% set image = section.image %}
+{% set image_width = section.image_width %}
+{% set bg_color = section.bg_color %}
+{% set title = section.title  %}
+{% set pre_title = section.pre_title  %}
+{% set copy = section.copy ?? null %}
+{% set button_label = section.button_label ?? null  %}
+{% set button_link = section.button_link ?? null  %}
+{% set button_color = section.button_color %}
+{% set right_image = section.right_image ?? false  %}
+{% set image_fit = section.image_fit %}
+
+<section class="image-text bg-white" style="background-color:{{ bg_color }}">
+    <div class="content grid grid-cols-12">
+        <div class="img-col col-span-12 md:col-span-6 
+            {{ right_image ? 'md:order-last right-image' : '' }}
+            image-{{ image_fit }} 
+            relative">
+            {% if section.image_width %}
+                {% if section.image_width < 100 %}
+                    <div class="img-wrap">
+                {% endif %}
+            {% endif %}
+
+                {{ include('components/picture.twig', {
+                    image_url: image.url
+                }) }}
+            {% if section.image_width %}
+                {% if section.image_width < 100 %}
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+
+        <div class="text-col col-span-12 md:col-span-6 content-center self-center">
+            <div class="text-wrap generic-text">
+                {% if pre_title %}
+                    <span class="pre-title">{{ pre_title }}</span>
+                {% endif %}                
+                <h2>{{ title }}</h2>
+                {% if copy %}
+                    <div class="block mb-11">
+                        {{ copy }}
+                    </div>
+                {% endif %}
+                {% if button_label %}
+                    {{ include('components/button.twig', { 
+                        label: button_label, 
+                        classes: 'btn-arrow thin ', 
+                        url: button_link,
+                        button_color: button_color
+                    }) }}                
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

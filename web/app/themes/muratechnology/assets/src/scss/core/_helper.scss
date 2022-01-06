@@ -1,0 +1,62 @@
+
+
+:root {
+    scroll-behavior: smooth;
+}
+
+//prevents vertical edges extra overscrolling
+html {
+    @apply h-full overflow-hidden;
+    //enabels window scrolls events and sticky elements
+    @apply h-auto;
+    overflow: unset;
+}
+body {
+    @apply h-full overflow-auto;
+    &.stop-scrolling {
+        height: 100%;
+        overflow: hidden;
+    }
+}
+
+.page {
+    @apply h-full overflow-auto;
+}
+.container {
+    @apply px-7 md:px-11 m-auto;
+    @media (min-width: 1024px) {
+        max-width: 1536px;
+    }
+}
+
+//mobile overflow fix
+@media (max-width: 640px) {
+    html, body, .page, section {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+}
+
+/* Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.absolute-center {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}
+
+// snap scrolling
+// .page {
+//     scroll-snap-type: y proximity;
+//     scroll-padding-top: 0;
+//     > section.snap-scroll {
+//         scroll-snap-align: start;
+//     }
+// }
+

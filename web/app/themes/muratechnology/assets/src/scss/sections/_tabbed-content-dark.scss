@@ -1,0 +1,150 @@
+.tabbed-content-dark {
+    @apply bg-brand-brown-darkest relative text-white;
+    min-height: 700px;
+    @media (min-width: 769px) and (max-height: 900px) {
+        min-height: 100vh;
+    }
+    .background {
+        position: static;
+        top: 0;
+        z-index: -1;
+        height: 170vh;
+        margin-bottom: -170vh;
+        object-fit: cover;
+    }      
+    .intro {
+        height: 80vh;
+        .container {
+            @apply h-full;
+        }
+        h2 {
+            @apply uppercase text-white xl:text-5xl;
+            @apply py-16 lg:py-20;
+            @apply opacity-0;
+            transition: all 2s ease-in-out;
+            &.in-view {
+                @apply opacity-100;
+            }
+            &.exit {
+                @apply opacity-0;
+            }
+        }
+        @media (max-width: 640px) {
+            height: 30vh;
+        }
+    }
+    .images-row {
+        @apply p-11 lg:p-14 xl:p-24 gap-14 xl:gap-28;
+        .swiper-pagination {
+            @apply w-2 right-6;
+            // overrides to default swiper js
+            @apply left-auto;
+            span {
+                @apply block h-7 border-l-4 border-white opacity-20 w-full rounded-none bg-transparent;
+                margin: 6px 0;
+                &.swiper-pagination-bullet-active {
+                    @apply opacity-100;
+                }
+            }
+        }
+    }
+
+    .overlay-nav {
+        @apply w-6/12 z-20;
+        @apply p-11 lg:p-14 xl:p-24 gap-14 xl:gap-28;
+        position: sticky;
+        height: 100vh;
+        top: 0;
+        &.left-side {
+            @apply right-auto left-0;
+        }
+        &.right-side {
+            @apply left-auto right-0;
+            left: 50%;
+        }
+    }
+    .desktop {
+        margin-top: -100vh;
+    }
+    
+    .generic-text {
+        @apply mt-20;
+        .slide-title {
+            @extend .h2;
+            @apply opacity-20 cursor-pointer transition-all relative z-10 py-1;
+            &.active {
+                @apply opacity-100 cursor-default;
+            }
+            &:hover:not(.active) {
+                @apply opacity-50;
+            }
+        }
+        article {
+            @apply hidden mt-10;
+            &.active {
+                @apply block;
+            }
+        }
+    }
+    .mobile {
+        @apply py-11 px-7 gap-14 pb-20;
+        .item {
+            @apply flex flex-col gap-5;
+            .img-wrap {
+                width: 80%;
+                max-height: 300px;
+                max-width: 200px
+            }
+            .slide-title {
+                @apply opacity-100;
+            }
+        }
+        .generic-text {
+            @apply mt-0;
+        }
+    }
+    &.no-nav-bars {
+        .generic-text .slide-title.active {
+            @apply relative;
+        }
+    }
+}
+
+// $slideHeight: 600px;
+$slideHeight: 800px;
+.tabbed-content-dark .tabbed-content-slides {
+    @apply overflow-hidden h-auto;
+    .swiper-wrapper {
+        @apply flex-col pb-28;
+        .swiper-slide {
+            @apply pt-28;
+            overflow-x: hidden;
+        }
+    }
+    .img-col {
+        @apply h-auto flex opacity-0;
+        transition: all 1s ease-in-out;
+
+        &.in-view {
+            @apply opacity-100;
+        }
+        &.exit {
+            @apply opacity-0;
+        }
+
+        .wrap {
+            @apply mt-auto mb-0 ml-0 flex flex-col gap-5;
+            max-width: 350px;
+        }
+    }
+    @media (min-width: 769px) and (min-height: 900px) {
+        // &, .img-col {
+        //     height: $slideHeight;
+        // }
+    }
+    .swiper-slide-active {
+        .img-col {
+            @apply opacity-100;
+        }
+    }
+}

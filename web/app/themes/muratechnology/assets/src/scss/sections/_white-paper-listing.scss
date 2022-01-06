@@ -1,0 +1,58 @@
+.white-paper-listing {
+    @apply py-20 lg:py-32;
+    .papers-list {
+        .item {
+            @apply border-t border-brand-grey-darkest py-7;
+            .header {
+                .generic-text {
+                    @apply flex flex-col items-start gap-5;
+                }
+                h3 {
+                    @apply normal-case;
+                }
+                .position-type {
+                    @apply border py-2 px-6 text-xs uppercase text-brand-grey-darkest font-medium rounded-full inline-block;
+                }
+                .salary {
+                    @apply text-xs uppercase text-brand-grey-dark;
+                }
+                .icon {
+                    @apply opacity-0 block;
+                    @apply relative bg-cover;
+                    background-image: url(../img/download-arrow.svg);
+                    align-self: center;
+                    height: 32px;
+                    width: 25px;
+                    background-size: 100% auto;
+                    background-repeat: no-repeat;
+                }
+                &:hover {
+                    .icon {
+                        @apply opacity-100;
+                    }
+                }
+                @media (max-width: 640px) {
+                    .icon {
+                        height: 25px;
+                        width: 18px;
+                    }
+                }
+            }
+            .body {
+                @apply pt-6;
+            }
+
+            &.expanded {
+                .header .icon {
+                    @apply opacity-100;
+                    span:nth-child(2) {
+                        @apply opacity-0;
+                    }
+                }
+                .body {
+                    @apply block;
+                }
+            }
+        }
+    }
+}

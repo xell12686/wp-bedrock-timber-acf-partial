@@ -1,0 +1,94 @@
+<header class="masthead">
+    
+    <div class="container mx-auto flex flex-row items-center justify-between">
+        <a class="site-logo" href="/">
+            {{ fn('file_get_contents', fn('get_template_directory') ~ '/assets/dist/img/mura-logo.svg') }}
+        </a>
+        <nav class="hidden xl:block md:ml-auto">
+            <ul class="header-nav inline-block">
+                <li class="has-sub-menu">
+                    <a href="#">Solution</a>
+                    <ul class="sub-menu">
+                        <li><a class="">First Link</a></li>
+                        <li><a class="">Second Link</a></li>
+                        <li><a class="">Third Link</a></li>
+                        <li><a class="">Fourth Link</a></li>
+                    </ul>
+                    <button>+</button>
+                </li>
+                <li class="has-sub-menu">
+                    <a href="#">About</a>
+                    <ul class="sub-menu">
+                        <li><a class="">First Link</a></li>
+                        <li><a class="">Second Link</a></li>
+                        <li><a class="">Third Link</a></li>
+                        <li><a class="">Fourth Link</a></li>
+                    </ul>
+                    <button>+</button>
+                </li>
+                <li class="has-sub-menu">
+                    <a href="#">Partners</a>
+                    <ul class="sub-menu">
+                        <li><a class="">First Link</a></li>
+                        <li><a class="">Second Link</a></li>
+                        <li><a class="">Third Link</a></li>
+                        <li><a class="">Fourth Link</a></li>
+                    </ul>
+                    <button>+</button>
+                </li>
+                <li>
+                    <a href="#">News</a>
+                </li>
+            </ul>
+        </nav>
+        <a href="#" class="btn btn-rounded hidden xl:block ml-auto">
+            Contact Us
+        </a>
+        <button id="nav-toggle" class="hamburger-toggle relative outline-none border-none ml-5">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+
+    <nav class="mobile-nav">
+        <ul class="header-nav">
+            <li class="has-sub-menu">
+                <a href="#">Solution</a>
+                <button>+</button>
+                <ul class="sub-menu">
+                    <li><a class="">First Link</a></li>
+                    <li><a class="">Second Link</a></li>
+                    <li><a class="">Third Link</a></li>
+                    <li><a class="">Fourth Link</a></li>
+                </ul>
+            </li>
+            <li class="has-sub-menu">
+                <a href="#">About</a>
+                <button>+</button>
+                <ul class="sub-menu">
+                    <li><a class="">First Link</a></li>
+                    <li><a class="">Second Link</a></li>
+                    <li><a class="">Third Link</a></li>
+                    <li><a class="">Fourth Link</a></li>
+                </ul>
+            </li>
+            <li class="has-sub-menu">
+                <a href="#">Partners</a>
+                <button>+</button>
+                <ul class="sub-menu">
+                    <li><a class="">First Link</a></li>
+                    <li><a class="">Second Link</a></li>
+                    <li><a class="">Third Link</a></li>
+                    <li><a class="">Fourth Link</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">News</a>
+            </li>
+        </ul>
+    </nav>
+
+</header>

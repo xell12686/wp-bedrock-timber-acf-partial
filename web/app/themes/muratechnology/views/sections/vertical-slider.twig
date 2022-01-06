@@ -1,0 +1,75 @@
+{# Section Props #}
+{% set slides = section.slides %}
+{% set background_layer = section.background_layer ?? null %}
+{% set progressive_background_color = section.progressive_background_color ?? false %}
+{% set front_image_width = section.front_image_width %}
+{% set swap_title_copy = section.swap_title_copy ?? true %}
+
+<section class="vertical-slider snap-scroll {{ progressive_background_color ? 'progressive-bg' : ''}}">
+
+
+    <div class="vertical-panels">
+
+        {% for slide in slides %}
+            {% if (slide.value_length == 'long') %}
+                {% set value_length_class = 'long-value' %}
+                {% set long_value = true %}
+            {% elseif (slide.value_length == 'very long')  %}
+                {% set value_length_class = 'very-long-value' %}
+                {% set long_value = true %}
+            {% else %}
+                {% set value_length_class = '' %}
+            {% endif %}
+            
+            <div class="swiper-slide slide-{{ loop.index - 1 }} {{ (loop.index == 1) ? 'entrance' : '' }}"
+                data-slide="{{ loop.index - 1 }}"
+                id="verticalSlide{{ loop.index - 1 }}"
+                >
+                {% if loop.index == 1 and progressive_background_color %}
+                    {{ include('components/picture.twig', { 
+                        image_url: background_layer.url,
+                        classes: 'absolute object-cover object-bottom w-full h-full opacity-80'
+                    }) }}
+                {% endif %}
+                <div class="container">
+                    <div class="objects-wrap">
+                        <div class="text-col ">
+                            {% if swap_title_copy %}
+                                <h2 class="mb-4">{{ slide.title }}</h2>
+                                <p class="copy">{{ slide.copy }}</p>
+                            {% else %}
+                                <span class="pre-title mb-4">{{ slide.title }}</span>
+                                <h2>{{ slide.copy }}</h2>
+                            {% endif %}
+                        </div>
+                        <div class="img-col {{ value_length_class }}">
+                            <div class="graphic">
+                                {% if slide.graphic_bundle == 'bottle-triangle' %} 
+                                    <img src="{{ theme.link }}/assets/dist/img/globe-2.svg" alt="graphic" class="back">
+                                {% else %}
+                                    <img src="{{ theme.link }}/assets/dist/img/globe-1.svg" alt="graphic" class="back">
+                                {% endif %}
+                                
+                                {% if slide.graphic_bundle == 'Upload Image' %}
+                                    <img src="{{ slide.front_image.url }}" alt="graphic" class="front" style="width:{{ slide.front_image_width }}%">
+                                {% else %}
+                                    <img src="{{ theme.link }}/assets/dist/img/{{ slide.graphic_bundle }}.svg" alt="graphic" class="front" style="width:{{ slide.front_image_width }}%">
+                                {% endif %}
+                            </div>
+                            {{ include('components/value-snippet.twig', { 
+                                value: slide.value,
+                                label: slide.label,
+                                accent: 'orange',
+                                add_class: 'mt-9',
+                                long_value: long_value
+                            }) }}                                    
+                        </div>
+                    </div>
+                </div>
+
+            </div> 
+        {% endfor %}
+
+    </div>
+
+</section>

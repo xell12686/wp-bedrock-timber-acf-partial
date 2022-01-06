@@ -1,0 +1,88 @@
+{# Section Props #}
+{% set heading = section.heading  %}
+{% set list_heading = section.list_heading %}
+{% set background_layer = section.background_layer ?? null %}
+{% set slides = section.slides %}
+
+
+<section class="tabbed-content-dark {{ has_nav_bars ? '' : 'no-nav-bars' }}">
+    {% if background_layer %}
+        {{ include('components/picture.twig', { 
+            image_url: background_layer.url,
+            classes: 'background object-contain object-top w-full h-full opacity-80'
+        }) }}
+    {% endif %}
+    <div class="intro">
+        <div class="container grid place-items-center">
+            <h2>{{ heading }}</h2>
+        </div>
+    </div>
+
+    <div class="overlay-nav content hidden lg:block {{ right_text ? 'right-side' : 'left-side' }}">
+        <div class="generic-text">
+            <span class="pre-title">{{ list_heading }}</span>
+            <div class="title-navigation">
+                {% for slide in slides %}
+                    <span class="slide-title {{ (loop.index == 1) ? 'active' : '' }}" data-slide="{{ loop.index - 1 }}">{{ slide.title }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="desktop hidden lg:flex relative">
+        
+
+        <div class="images-row relative w-full h-full hidden lg:block">
+            <div class="tabbed-content-slides swiper">
+                <div class="swiper-wrapper">
+                    {% for slide in slides %}
+                        <div class="item swiper-slide slide-{{ loop.index - 1}} {{ (loop.index == 1) ? 'entrance' : '' }}">
+                            <div class="grid grid-cols-12">
+                                <div class="img-col col-span-5 {{ right_text ? 'col-start-1' : 'col-start-8' }}">
+                                    <div class="wrap">
+                                        <div class="img-wrap pb-5" style="width:{{ slide.image_width }}%">
+                                            {{ include('components/picture.twig', { 
+                                                max_small: true,
+                                                image_url: slide.image.url,
+                                                image_alt: slide.image.alt,
+                                                classes: 'object-contain object-top w-full'
+                                            }) }}
+                                        </div>
+                                        <h3 class="font-medium">{{ slide.label }}</h3>                                   
+                                        <div class="block">{{ slide.copy }}</div>                                   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="swiper-pagination"></div>
+        </div>
+
+    </div>
+
+    <div class="intersect-object"></div>
+    
+    <div class="mobile grid lg:hidden md:p-10 relative">
+        {% for slide in slides %}
+            <div class="item">
+                <div class="img-wrap">
+                    {{ include('components/picture.twig', { 
+                        max_small: true,
+                        image_url: slide.image.url,
+                        image_alt: slide.image.alt,
+                        classes: 'object-contain w-full h-full'
+                    }) }}
+                </div>
+                <div class="generic-text">
+                    <span class="pre-title">{{ list_heading }}</span>
+                    <span class="slide-title">{{ slide.title }}</span>
+                </div>
+                <article>{{ slide.copy }}</article>
+            </div>
+        {% endfor %}            
+    </div>
+
+</section>

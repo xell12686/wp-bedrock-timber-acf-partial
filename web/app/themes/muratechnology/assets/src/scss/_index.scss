@@ -1,0 +1,188 @@
+#index {
+    @apply flex py-16;
+
+    h1 {
+        @apply text-4xl mb-20;
+    }
+
+    h2 {
+        @apply text-2xl bottom-1 border-brand-yellow pb-7;
+    }
+
+    ul {
+        &.root {
+            @apply p-0 mb-20;
+            > li > div > a,
+            > li > div > span {
+                @apply py-2 px-4 text-black;
+                &:hover {
+                    @apply font-semibold;
+                }
+            }
+        }
+        &.sub {
+            @apply hidden pl-10;
+        }
+        li {
+            > div {
+                @apply flex w-full items-center justify-between relative bg-brand-grey-light;
+            }
+            button {
+                @apply relative top-0 right-0 block h-14 w-14 bg-no-repeat ml-auto flex-grow;
+                background-image: url(../img/caret-down-thick.svg);
+                background-size: 16px;
+                background-position: 95% center;
+            }
+            ul {
+                @apply hidden mt-5;
+                li {
+                    a {
+                        @apply p-2 px-3 bg-brand-grey border;
+                        &:hover {
+                            @apply bg-brand-yellow;
+                        }
+                    }
+                }
+            }
+            &:hover {
+                > div {
+                    @apply bg-brand-yellow;
+                }
+            }
+            &.expanded {
+                button {
+                    transform: scaleY(-1);
+                }
+                ul.sub {
+                    @apply block;
+                }
+            }
+        }
+        a {
+            @apply flex content-center justify-between;
+            &:only-child {
+                @apply flex-grow;
+            }
+            &:not([class^="text-"]) {
+                @apply text-black;
+            }
+
+            &:after {
+                content: "";
+                background: url(../img/icon-view.svg) no-repeat center / contain;
+                @apply relative h-6 w-6 ml-5 block opacity-0;
+                transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+            }
+
+            &:hover {
+                &:after {
+                    @apply opacity-100;
+                }
+            }
+        }
+        &.incomplete {
+            li {
+                @apply opacity-50;
+            }
+        }
+    }
+
+    li {
+        @apply block list-none;
+        margin-bottom: 10px;
+        &.incomplete {
+            @apply hidden;
+        }
+    }
+}
+
+#preview {
+    @apply w-full h-auto overflow-hidden;
+    > section,
+    > header,
+    > footer {
+        @apply w-full;
+    }
+    @media (min-width: 1280px) {
+        min-height: calc(100vh - #{$headerHeight});
+    }
+}
+
+.front-end-preview {
+    @apply relative;
+    .btn {
+        @apply opacity-30 absolute left-5 top-5 normal-case bg-white;
+        -webkit-animation: shake-horizontal 3s ease-in-out infinite both;
+        animation: shake-horizontal 3s ease-in-out infinite both;
+        &:hover {
+            @apply opacity-100;
+        }
+    }
+    @media (max-width: 1280px) {
+        .btn {
+            @apply top-auto bottom-5 opacity-30;
+        }
+    }
+}
+
+/**
+ * ----------------------------------------
+ * animation shake-horizontal
+ * ----------------------------------------
+ */
+@-webkit-keyframes shake-horizontal {
+    0%,
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+    }
+    20%,
+    40%,
+    60% {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+    80% {
+        -webkit-transform: translateX(8px);
+        transform: translateX(8px);
+    }
+    90% {
+        -webkit-transform: translateX(-8px);
+        transform: translateX(-8px);
+    }
+}
+@keyframes shake-horizontal {
+    0%,
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    10%,
+    30%,
+    50%,
+    70% {
+        -webkit-transform: translateX(-10px);
+        transform: translateX(-10px);
+    }
+    20%,
+    40%,
+    60% {
+        -webkit-transform: translateX(10px);
+        transform: translateX(10px);
+    }
+    80% {
+        -webkit-transform: translateX(8px);
+        transform: translateX(8px);
+    }
+    90% {
+        -webkit-transform: translateX(-8px);
+        transform: translateX(-8px);
+    }
+}

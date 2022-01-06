@@ -1,0 +1,269 @@
+.tabbed-content {
+    @apply bg-brand-grey-light relative;
+    overflow: unset;
+    @media (min-width: 768px) {
+        @apply py-6;
+    }
+    .images-row {
+        @apply p-11 lg:p-14 xl:p-24 gap-14 xl:gap-28;
+        
+    }
+    .overlay-nav {
+        // @apply w-6/12; 
+        @apply z-20 h-auto;
+        @apply p-24 xl:p-24 gap-14 xl:gap-28;
+        @apply w-full left-0 top-0 sticky;
+        &.left-side {
+            // @apply right-auto left-0;
+        }
+        &.right-side {
+            // @apply left-auto right-0;
+            @apply flex-row-reverse;
+        }
+
+        .visible-slides {
+            @apply max-w-4xl;
+            .items {
+                @apply h-full;
+                .item {
+                    @apply hidden opacity-10 h-full;
+                    transition: all .5s ease-in;
+                    &.active {
+                        @apply block;
+                    }
+                    &.shown {
+                        @apply opacity-100;
+                    }
+                }
+            }
+        }
+        //tablets portrait
+        @media (min-width: 768px) and (max-width: 1024px) {
+            @apply p-12;
+        }
+    }
+    .desktop {
+        @apply opacity-0;
+        margin-top: -50vh;
+        .invisible-slides {
+            .swiper-slide {
+                padding-top: 300px;
+                .img-col {
+                    height: 50vh;
+                }
+            }
+        }
+    }
+    .tablet {
+
+    }
+    .generic-text {
+        // @apply mt-20;
+        .slide-title {
+            @extend .h2;
+            @apply opacity-20 cursor-pointer transition-all relative z-10 py-1;
+            &.active {
+                @apply opacity-100 cursor-default;
+                @apply relative;
+                &:before {
+                    content: " ";
+                    @apply absolute block w-2 h-7 border-l-2 border-brand-black inset-y-0 -left-7 m-auto;
+                }
+            }
+            &:hover:not(.active) {
+                @apply opacity-40;
+            }
+        }
+        article {
+            @apply hidden mt-10;
+            &.active {
+                @apply block;
+            }
+        }
+        //tablets portrait
+        @media (min-width: 768px) and (max-width: 1024px) {
+            @apply mt-0;
+        }
+    }
+    .mobile {
+        @apply py-11 px-7 gap-14;
+        .item {
+            @apply flex flex-col gap-5;
+            .img-wrap {
+                @apply mb-5;
+            }
+            .slide-title {
+                @apply opacity-100;
+            }
+        }
+        .generic-text {
+            @apply mt-0;
+        }
+
+    }
+
+    .swiper-pagination {
+        @apply w-2 right-6 gap-1;
+        span {
+            @apply block h-7 border-l-2 border-brand-grey-darkest opacity-30 w-full rounded-none bg-transparent;
+            @apply m-0;
+            &.swiper-pagination-bullet-active {
+                @apply opacity-100;
+            }
+        }
+    }
+
+    .swiper-pagination {
+        top: 0;
+        position: sticky;
+
+        right: 20px;
+        left: auto;
+        height: 100vh;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        display: none;
+    }
+
+    &:not(.img-text-col) {
+        .mobile {
+            .item {
+                .img-wrap {
+                    // @apply w-full aspect-w-1 aspect-h-1;
+                }
+            }
+        }
+    }
+
+    .nav-headings {
+        width: 50%;
+        max-width: 300px;
+        height: auto;
+        left: 0;
+        top: 0;
+        padding: 50px;
+        display: block;
+        position: sticky;
+        z-index: 10;
+        background-color: grey;
+        li {
+            &.active {
+                @apply font-bold text-brand-yellow-light;
+            }
+        }
+    }
+}
+
+// default slide variation
+$slideHeight: 600px;
+.tabbed-content .tabbed-content-slides {
+    @apply overflow-hidden h-auto;
+    .swiper-wrapper {
+        @apply flex-col;
+        .swiper-slide {
+            @apply pt-28;
+            overflow-x: hidden;
+            &:first-child {
+                @apply pt-0;
+            }
+        }
+        @media(max-width:1280px) {
+            @apply pt-12;
+        }
+        @media(max-width:1024px) {
+            @apply pt-0;
+        }
+    }
+    .img-col {
+        @apply opacity-0;
+        height: $slideHeight;
+        transition: all 1s ease-in-out;
+
+        &.in-view {
+            @apply opacity-100;
+        }
+        &.exit {
+            @apply opacity-0;
+        }
+        @media (min-width: 768px) and (max-width: 1024px) {
+            height: 400px;
+        }
+    }
+}
+
+
+//variation img-text-col
+$slideHeight2: 800px;
+.tabbed-content.img-text-col .tabbed-content-slides {
+    @apply overflow-hidden h-auto;
+    .swiper-wrapper {
+        @apply flex-col pb-2;
+        .swiper-slide {
+            overflow-x: unset;
+        }
+    }
+    .img-col {
+        @apply h-auto flex;
+        .wrap {
+            @apply mt-auto mb-0 ml-0 flex flex-col gap-5;
+            max-width: 350px;
+        }
+    }
+}
+
+
+.tabbed-content.img-text-col .mobile {
+    .item {
+        .img-wrap {
+            max-width: 300px;
+            @apply relative mx-auto;
+            img {
+                @apply block w-full h-auto relative;
+            }
+        }
+    }
+}
+
+
+// all vertical sliders
+.tabbed-content, 
+.tabbed-content-dark, 
+.vertical-slides,
+.tabbed-multi-column {
+    // .swiper-pagination {
+    //     top: 50%;
+    //     transform: translate3d(0px,-50%,0);
+    //     span {
+    //         margin: 6px auto;
+    //     }
+    // }
+    div:not(.mobile) {
+        .generic-text {
+            @media (min-width: 769px) and (max-height: 900px) {
+                margin-top: 0;
+            }
+            // Small Laptop viewport or iPad Pro
+            @media (max-width: 1440px) and (max-height: 900px), (max-width: 1024px) {
+                .slide-copy {
+                    margin-top: 20px;
+                    * {
+                        font-size: 14px;
+                    }
+                }
+            } 
+        }
+    }
+    .intersect-object {
+        @apply w-full h-3 bg-transparent;
+        position: absolute;
+        left: 0;
+        bottom: 100px;
+    }
+    body.stop-scrolling & {
+        padding-right: 15px;
+    }
+}

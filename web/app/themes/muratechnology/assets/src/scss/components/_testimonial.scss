@@ -1,0 +1,30 @@
+.testimonial {
+    @apply flex flex-col gap-10;
+    .quote {
+        @apply border-brand-orange border-l-4 pl-7 text-xl italic;
+    }
+    .author {
+        @apply flex flex-row place-items-center gap-5 pl-7;
+        .avatar {
+            @apply overflow-hidden;
+            width: 100px;
+            height: 100px;
+        }
+        .text {
+            @apply flex-col flex;
+            h3 {
+                @apply text-sm uppercase text-brand-black font-medium;
+            }
+            .position {
+                @apply text-xs flex flex-row gap-1 text-brand-black opacity-50 place-items-center;
+                &:before {
+                    content: ' ';
+                    border-bottom: 1px solid black;
+                    display: block;
+                    width: 30px;
+                    @apply opacity-50;
+                }
+            }
+        }
+    }
+}

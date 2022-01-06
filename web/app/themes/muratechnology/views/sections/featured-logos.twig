@@ -1,0 +1,32 @@
+{# Section Props #}
+{% set logos = section.logos %}
+
+
+<section class="featured-logos h-auto">
+    <div class="container py-16 lg:py-20">
+        <div class="label-col">
+            <span class="label">Featured in</span>
+        </div>
+        <div class="swiper-nav">
+            <button class="prev"><span class="sr-only">Previous Slide</span></button>
+            <button class="next"><span class="sr-only">Next Slide</span></button>
+        </div>
+        <div class="slider-col">
+            <div class="logo-slider swiper">
+                <div class="swiper-wrapper">
+                    {% for logo in logos %}
+                        <div class="swiper-slide item">
+                            {% if logo.url %}
+                                <a href="{{ logo.url }}" target="_blank" class="block m-auto">
+                                    <img src="{{ logo.image['url'] }}" alt="logo">
+                                </a>
+                            {% else %}
+                                <img src="{{ logo.image['url'] }}" alt="logo">
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

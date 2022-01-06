@@ -1,0 +1,70 @@
+{# Section Props #}
+{% set slides = section.slides %}
+{% set pre_title = section.pre_title ?? null  %}
+{% set title = section.title  %} 
+{% set copy = section.copy %}
+{% set cta_buttons = section.cta_buttons ?? null  %}
+
+<section class="stats h-auto">
+    <div class="content grid grid-cols-12">
+        <div class="img-col col-span-12 md:col-span-6">
+
+            <div class="swiper image-slider">
+                <div class="swiper-wrapper">
+                    
+                    {% for slide in slides %}
+                        <div class="swiper-slide relative">
+
+                            {{ include('components/picture.twig', { 
+                                classes: 'img-bg object-cover object-top', 
+                                image_url: slide.image.url
+                            }) }}
+
+                            {% set animate_count = ( slide.heading_type == 'number' ) ? true : false  %}
+                            {% set value = ( slide.heading_type == 'text' ) ? slide.title : slide.value  %}
+                                                            
+                            {{ include('components/value-snippet.twig', { 
+                                value: value,
+                                value_unit: slide.value_unit,
+                                label: slide.copy,
+                                add_class: 'm-10 mb-16 md:mx-11 lg:mx-14 xl:mx-32 md:my-20 xl:my-32 z-10',
+                                animate_count: animate_count,
+                            }) }}
+
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+
+        <div class="text-col col-span-12 md:col-span-6 content-center bg-brand-grey-light">
+
+            <div class="text-wrap generic-text">
+                {% if pre_title %}
+                    <span class="pre-title">{{ pre_title }}</span>
+                {% endif %}
+                <h2>{{ title }}</h2>
+                <p>{{ copy }}</p>
+                {% if cta_buttons %}
+
+                    <div class="grid grid-cols-1 gap-12 justify-items-start">
+                        {% for button in cta_buttons %}
+
+                            {{ include('components/button.twig', { 
+                                label: button.label,
+                                classes: 'btn-arrow', 
+                                url: button.link
+                            }) }}
+                            
+                        {% endfor %}
+                    </div>
+                    
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

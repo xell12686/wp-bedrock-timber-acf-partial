@@ -1,0 +1,96 @@
+{# Section Props #}
+{% set pre_title = section.pre_title  %}
+{% set slides = section.slides %}
+{% set right_text = section.right_text  %}
+{# {% set has_nav_bars = section.has_nav_bars  %} #}
+{% set has_nav_bars = true %}
+{% set has_image_text_col = section.has_image_text_col %}
+{% set text_col_max_width = section.text_col_max_width %}
+
+
+<section class="tabbed-content-horizontal {{ has_nav_bars ? '' : 'no-nav-bars' }} {{ has_image_text_col ? 'img-text-col' : '' }}">
+
+    <div class="mobile-heading">
+        <span class="pre-title">{{ pre_title }}</span>
+    </div>
+
+    <div class="overlay-nav content hidden 2md:block {{ right_text ? 'right-side' : 'left-side' }}">
+        <div class="generic-text">
+            <span class="pre-title">{{ pre_title }}</span>
+            <div class="title-navigation">
+                {% for slide in slides %}
+                    <span class="slide-title {{ (loop.index == 1) ? 'active' : '' }}" data-slide="{{ loop.index - 1 }}">{{ slide.title }}</span>
+                {% endfor %}
+            </div>
+            {% if has_image_text_col == 0 %}
+                {% for slide in slides %}
+                    <article class="slide-copy {{ (loop.index == 1) ? 'active' : '' }} font-size-{{ slide.copy_font_size }}" data-slide="{{ loop.index - 1 }}" >
+                        {{ slide.copy }}
+                    </article>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="desktop flex">
+        <div class="images-row relative w-full h-full block">
+            <div class="tabbed-content-slides swiper" id="testDetect">
+                <div class="swiper-wrapper">
+                    {% for slide in slides %}
+                        <div class="swiper-slide slide-{{ loop.index - 1 }} {{ (loop.index == 1) ? 'swiper-slide-active' : '' }}">
+                            <div class="grid grid-cols-12">
+                                <div class="img-col col-span-12 2md:col-span-6 {{ right_text ? 'col-start-1' : '2md:col-start-7' }}">
+                                    {% if has_image_text_col %}
+                                        <div class="wrap">
+                                            <div class="img-wrap pb-5" style="width:{{ slide.image_width }}%">
+                                                {{ include('components/picture.twig', { 
+                                                    max_small: true,
+                                                    image_url: slide.image.url,
+                                                    image_alt: slide.image.alt,
+                                                    classes: 'object-contain object-top w-full'
+                                                }) }}
+                                            </div>
+                                            <div class="text-wrap">
+                                                <h2 class="title block">{{ slide.title }}</h2>
+                                                <h3 class="font-medium">{{ slide.label }}</h3>                                   
+                                                <div class="block">{{ slide.copy }}</div>
+                                                
+                                                {% if slide.button_label %}
+                                                    {{ include('components/button.twig', { 
+                                                        label: slide.button_label, 
+                                                        classes: 'btn-arrow bg-brand-yellow thin',
+                                                        url: slide.button_link
+                                                    }) }}                
+                                                {% endif %}                                            
+                                            </div>
+                                        </div>                                    
+                                        
+                                    {% else %}
+                                        {{ include('components/picture.twig', { 
+                                            max_medium: true,
+                                            image_url: slide.image.url,
+                                            image_alt: slide.image.alt
+                                        }) }}
+                                        
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+           
+        </div>
+
+    </div>
+
+    {% if has_nav_bars %}
+        <div class="swiper-pagination">
+            {% for slide in slides %}
+                <span class="swiper-pagination-bullet swiper-pagination-bullets swiper-pagination-vertical {{ (loop.index == 1) ? 'swiper-pagination-bullet-active' : '' }}" data-slide="{{ loop.index - 1 }}"></span>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+</section>

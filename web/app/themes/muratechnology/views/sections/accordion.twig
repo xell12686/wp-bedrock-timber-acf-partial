@@ -1,0 +1,44 @@
+{# Section Props #}
+
+{% set pre_title = section.pre_title  %}
+{% set title = section.title %}
+{% set accordion_rows = section.accordion_rows %}
+
+<section class="accordion">
+    <div class="container">
+        <div class="grid grid-cols-12 gap-4">
+            <div class="col-span-12 generic-text">
+                {% if pre_title %}
+                    <span class="pre-title">{{ pre_title }}</span>
+                {% endif %}
+                <h2 class="uppercase">{{ title }}</h2>
+            </div>
+            <div class="col-span-12">
+                <ul class="accordion-rows">
+                    {% for item in accordion_rows %}
+
+                        <li class="item">
+                            <div class="flex justify-between header" role="button" aria-pressed="false">
+                                <div class="generic-text">
+                                    <h3>{{ item.label }}</h3>
+                                </div>
+                                <div class="icon">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="body hidden">
+                                <div class="description">
+                                    {{ item.copy }}
+                                </div>
+                            </div>
+                        </li>
+                    
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+

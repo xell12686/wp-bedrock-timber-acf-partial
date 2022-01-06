@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "label": "01",
+        "title": "Key Advantage Number One",
+        "copy": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+        "image": "../assets/dist/img/stock/slide-1.jpg"
+    },
+    {
+        "id": 2,
+        "label": "02",
+        "title": "Key Advantage Number Two",
+        "copy": "Duis lacinia, eros vel hendrerit egestas, nisi sem blandit ante, nec hendrerit sapien arcu ac leo. Vivamus varius molestie blandit. Integer sollicitudin sapien vel mauris interdum ultricies nec id eros. Donec commodo mi eget turpis dictum sit amet faucibus diam elementum.",
+        "image": "../assets/dist/img/stock/hero-bg-1.jpg"
+    },
+    {
+        "id": 3,
+        "label": "03",
+        "title": "Duis lacinia eros vel",
+        "copy": "Maecenas a lacus mauris. In at libero dolor, ut porta nunc. Nulla hendrerit varius sem id commodo. Sed nec posuere sem. Duis pellentesque mattis gravida. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse egestas hendrerit euismod. Phasellus ultrices porta sagittis. Vestibulum erat erat, faucibus id sagittis ac, porta nec quam.",
+        "image": "../assets/dist/img/stock/hero-bg-2.jpg"
+    }
+
+]

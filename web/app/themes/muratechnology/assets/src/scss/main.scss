@@ -1,0 +1,49 @@
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+// @import "swiper/swiper-bundle.min.css";
+// @import 'swiper/components/scrollbar/scrollbar.scss';
+
+
+@import "core/animate";
+
+@import "core/fonts";
+@import "core/vars";
+@import "core/helper";
+@import "core/typography";
+@import "core/swiper-nav";
+
+@import "components/buttons";
+@import "components/masthead";
+@import "components/value-snippet";
+@import "components/mini-cta";
+@import "components/testimonial";
+
+@import "sections/hero";
+@import "sections/stats";
+@import "sections/stages";
+@import "sections/vertical-slider";
+@import "sections/featured-logos";
+@import "sections/cta";
+@import "sections/news";
+@import "sections/vacancy-listing";
+@import "sections/white-paper-listing";
+@import "sections/tabbed-content";
+@import "sections/tabbed-content-horizontal";
+@import "sections/tabbed-content-dark";
+@import "sections/tabbed-multi-column";
+@import "sections/about";
+@import "sections/image-text";
+@import "sections/text-multi-images";
+@import "sections/timeline";
+@import "sections/process-steps";
+@import "sections/team-grid";
+@import "sections/faq-short-listing";
+@import "sections/two-col-content";
+@import "sections/photo-grid";
+@import "sections/accordion";
+
+
+@import "index";

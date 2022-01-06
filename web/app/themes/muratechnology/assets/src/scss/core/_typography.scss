@@ -1,0 +1,58 @@
+
+body {
+    @apply text-brand-black;
+}
+
+pre {
+    @apply text-brand-black;
+}
+
+.page {
+    .pre-title {
+        @apply block text-base font-semibold uppercase tracking-widest mb-1;
+    }
+    h2, .h2 {
+        @apply block text-3xl lg:text-4xl;
+    }
+    h3, .h3 {
+        @apply block text-xl lg:text-2xl;
+    }
+    article, p {
+        @apply text-base lg:text-lg;
+    }
+    sub, sup {
+        font-size: 55%;
+    }
+    sup {
+        top: -0.6em;
+    }
+    sub {
+        bottom: 0;
+    }
+}
+
+.generic-text {
+    h1 {
+        @apply block text-4xl lg:text-5xl;
+    }
+    h2 {
+        @apply mb-7 lg:mb-11;
+    }
+    p {
+        @apply mb-11;
+    }
+    a {
+        &:not(.btn) {
+            @apply text-brand-yellow-dark;
+        }
+    }
+    .font-size-S {
+        font-size: 16px;
+        line-height: 1.4em;
+        p {
+            font-size: 16px;
+            line-height: 1.4em;
+            margin-bottom: 1.4em;
+        }
+    }
+}

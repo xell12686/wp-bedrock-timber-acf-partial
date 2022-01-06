@@ -1,0 +1,24 @@
+section .swiper-nav {
+    @apply relative flex gap-3 items-center justify-end;
+    button {
+        @apply relative border border-brand-grey-dark rounded-full place-items-center bg-no-repeat inset-auto w-14 h-14;
+        background-image: url(../img/arrow-right.svg);
+        background-position: center center;
+        background-size: 50%;
+        &:after {
+            content: none;
+        }
+        &.prev {
+            @apply transform rotate-180;
+        }
+        &.swiper-button-disabled {
+            @apply opacity-30;
+        }
+    }
+    @media (max-width: 768px) {
+        @apply gap-2;
+        button {
+            @apply w-8 h-8;
+        }
+    }
+}

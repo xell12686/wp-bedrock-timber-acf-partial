@@ -1,0 +1,21 @@
+{% extends "base/base.twig" %}
+
+{% block content %}
+
+    {% for section in sections %}
+        {{ include('sections/' ~ section.acf_fc_layout|replace({ '_': '-' }) ~ '.twig', { section: section }) }}
+    {% endfor %}
+
+    {% if post_parent_slug == 'kitchen-sink' %}
+        <div class="flex p-10 border-t justify-end">
+
+            {{ include('components/button.twig', { 
+                label : '< Back to Index',
+                classes : 'btn-rounded ml-auto',
+                url : '/',
+            }) }}
+
+        </div>
+    {% endif %}
+
+{% endblock %}

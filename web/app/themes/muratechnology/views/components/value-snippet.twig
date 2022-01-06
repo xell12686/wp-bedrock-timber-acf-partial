@@ -1,0 +1,36 @@
+
+{#  Component Default Props #}
+
+{% set value = value %}
+{% set value_unit = value_unit ?? null %}
+{% set label = label ?? 0 %}
+{% set big_label = big_label ?? false %}
+{% set animate_count = animate_count ?? false %}
+{% set reverse_count = reverse_count ?? false %}
+{% set add_class = add_class ?? ' ' %}
+
+{% if animate_count %}
+    {% set value = fn('str_replace', ',', '', value) %}
+{% endif %}
+
+{% if ( value|length > 8 ) %}
+    {% set long_value = true %}
+{% else %}
+    {% set long_value = false %}
+{% endif %}
+
+<div class="value-snippet accent-{{ accent }} {{ add_class }} {{ big_label ? 'big-label' : '' }} {{ long_value ? 'long-value' : '' }}">
+    <div class="line"></div>
+    <div class="text">
+        <div class="value flex">
+            <span class="{{ animate_count ? 'animate-count' : '' }} {{ reverse_count ? 'reverse-count' : '' }}"
+                {% if animate_count %}
+                    data-max-value="{{ value|number_format(0, '.', '') }}"
+                {% endif %}    
+            >{{ value }}</span>{% if value_unit %} <span class="unit">{{ value_unit }}</span> {% endif %}   
+        </div> 
+        {% if label %}
+            <p>{{ label }}</p>
+        {% endif %}
+    </div>
+</div>

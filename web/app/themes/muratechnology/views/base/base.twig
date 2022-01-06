@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="{{ site.charset }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        {{ function('wp_head') }}
+
+        {% block head %}
+            {# BugHeard snippet #}
+            {% if constant('WP_ENV') != 'production' %}
+            <script type="text/javascript" src="https://www.bugherd.com/sidebarv2.js?apikey=rpfiugpsbboy5sptphfruq" async="true"></script>
+            {% endif %}
+        {% endblock %}
+    </head>
+
+    <body {{ function('body_class') }}>
+
+        {% if post_parent_slug != 'kitchen-sink' %}
+            {{ include('base/masthead.twig') }}
+        {% endif %}
+        
+        {% block content %}
+            Sorry, no content
+        {% endblock %}
+
+
+        {% if post_parent_slug != 'kitchen-sink' %}
+            {{ include('base/footer.twig') }}
+        {% endif %}
+
+
+        {{ function('wp_footer') }}
+
+
+    </body>
+</html>

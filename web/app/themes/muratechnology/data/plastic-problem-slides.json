@@ -1,0 +1,42 @@
+[
+    {
+        "pre_title": "The plastic problem",
+        "title": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy",
+        "img_back": "../assets/dist/img/globe-1.svg",
+        "img_front": "../assets/dist/img/recycle.svg",
+        "value": "9<sup>%</sup>",
+        "label": "of plastic produced globally gets recycled"
+    },
+    {
+        "pre_title": "The plastic problem",
+        "title": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy",
+        "img_back": "../assets/dist/img/globe-1.svg",
+        "img_front": "../assets/dist/img/recycle-x.svg",
+        "value": "91<sup>%</sup>",
+        "label": "of the remaining plastic is sent to landfill or incineration"
+    },
+    {
+        "pre_title": "The plastic problem",
+        "title": "Duis lacinia, eros vel hendrerit egestas, nisi sem blandit ante",
+        "img_back": "../assets/dist/img/globe-2.svg",
+        "img_front": "../assets/dist/img/bottle-triangle.svg",
+        "value": "8m",
+        "label": "tonnes of waste plastic gets dumped in the oceans every year"
+    },
+    {
+        "pre_title": "The plastic problem",
+        "title": "Maecenas a lacus mauris. In at libero dolor, ut porta nunc.",
+        "img_back": "../assets/dist/img/globe-1.svg",
+        "img_front": "../assets/dist/img/cup.svg",
+        "value": "$750<sub>bn</sub>",
+        "label": "By the year 2025, the market value of global plastics is estimated to reach a whopping "
+    },
+    {
+        "pre_title": "The plastic problem",
+        "title": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy",
+        "img_back": "../assets/dist/img/globe-1.svg",
+        "img_front": "../assets/dist/img/coins.svg",
+        "value": "$120<sub>bn</sub>",
+        "label": "By the year 2025, the market value of global plastics is estimated to reach a whopping "
+    }
+]

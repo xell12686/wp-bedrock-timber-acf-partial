@@ -1,0 +1,149 @@
+{# Section Props #}
+{% set pre_title = section.pre_title  %}
+{% set top_cta_button_label = section.top_cta_button_label  %}
+{% set top_cta_button_link = section.top_cta_button_link  %}
+{% set slides = section.slides %}
+
+
+<section class="tabbed-multi-column">
+
+    <div class="desktop hidden lg:block">
+        <div class="absolute right-0 p-10">
+            {% if top_cta_button_label %}
+                {{ include('components/button.twig', { 
+                    label: top_cta_button_label, 
+                    classes: 'btn-arrow bg-brand-yellow max-w-xs',
+                    url: top_cta_button_link,
+                    thin_button: true
+                }) }}                
+            {% endif %} 
+        </div>        
+        <div class="images-row relative w-full h-full hidden lg:block">
+            <div class="tabbed-multi-slides swiper">
+                <div class="swiper-wrapper">
+                    {% for slide in slides %}
+                        <div class="swiper-slide slide-{{ loop.index }} {{ (loop.index == 1) ? 'entrance' : '' }}">
+                            <div class="grid grid-cols-12">
+
+                                <div class="content-col col-span-8 col-start-4">
+
+                                        <div class="wrap">
+
+                                            <div class="mini-cta">
+                                                <div class="img-wrap pb-5">
+                                                    {{ include('components/picture.twig', { 
+                                                        max_small: true,
+                                                        image_url: slide.logo.url,
+                                                        image_alt: slide.logo.alt,
+                                                        classes: 'object-contain object-top w-full'
+                                                    }) }}
+                                                </div>
+                                                <div class="copy">
+                                                    {{ fn('nl2br', slide.copy )}}
+                                                </div>
+                                                <div>
+                                                    {% if slide.cta_button_label %}
+                                                        {{ include('components/button.twig', { 
+                                                            label: slide.cta_button_label, 
+                                                            classes: 'btn-arrow thin',
+                                                            url: slide.cta_button_link
+                                                        }) }}                
+                                                    {% endif %}                                                  
+                                                </div>
+                                            </div>
+
+                                            {% if slide.quote %}
+                                                {{ include('components/testimonial.twig', { 
+                                                    quote: slide.quote,
+                                                    avatar: slide.avatar,
+                                                    name: slide.name,
+                                                    position: slide.position,
+                                                    classes: 'self-end'
+                                                }) }}
+                                            {% endif %}
+
+                                        </div>                                    
+
+                                </div>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+
+        <div class="overlay-row content hidden lg:block left-0">
+            <div class="generic-text">
+                <span class="pre-title">{{ pre_title }}</span>
+                <div class="title-navigation">
+                    {% for slide in slides %}
+                        <span class="slide-title {{ (loop.index == 1) ? 'active' : '' }}" data-slide="{{ loop.index - 1 }}">{{ slide.nav_label }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="intersect-object"></div>
+    
+    <div class="mobile grid lg:hidden p-5 md:p-10 pt-10">
+        <div class="intro flex flex-row gap-5 justify-between pb-20">
+            <h2 class="heading uppercase">{{ pre_title }}</h2>
+            {% if top_cta_button_label %}
+                {{ include('components/button.twig', { 
+                    label: top_cta_button_label, 
+                    classes: 'btn-arrow bg-brand-yellow max-w-xs mb-auto',
+                    url: top_cta_button_link,
+                    thin_button: true
+                }) }}                
+            {% endif %} 
+        </div> 
+        
+        {% for slide in slides %}
+            <div class="item">
+
+                <div class="wrap">
+
+                    <div class="mini-cta">
+                        <div class="img-wrap pb-5">
+                            {{ include('components/picture.twig', { 
+                                max_small: true,
+                                image_url: slide.logo.url,
+                                image_alt: slide.logo.alt,
+                                classes: 'object-contain object-top w-full'
+                            }) }}
+                        </div>
+                        <div class="copy">
+                            {{ fn('nl2br', slide.copy )}}
+                        </div>
+                        <div>
+                            {% if slide.cta_button_label %}
+                                {{ include('components/button.twig', { 
+                                    label: slide.cta_button_label, 
+                                    classes: 'btn-arrow thin',
+                                    url: slide.cta_button_link
+                                }) }}                
+                            {% endif %}                                                  
+                        </div>
+                    </div>
+
+                    {% if slide.quote %}
+                        {{ include('components/testimonial.twig', { 
+                            quote: slide.quote,
+                            avatar: slide.avatar,
+                            name: slide.name,
+                            position: slide.position,
+                            classes: 'self-end'
+                        }) }}
+                    {% endif %}
+
+                </div> 
+            </div>
+        {% endfor %}            
+    </div>
+
+</section>

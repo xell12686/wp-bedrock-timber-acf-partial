@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="{{ site.charset }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {{ function('wp_head') }}
+
+</head>
+
+<body {{ function('body_class') }}>
+
+    {% block content %}
+
+
+    <div id="index">
+
+        <div class="container m-auto max-w-2xl">
+
+            <a href="/">
+                <h1>Mura Technology <br /> Kitchen Sink</h1>
+            </a>
+
+            <h2>Sections ( ready to use )</h2>
+            <ul class="root">
+                <li>
+                    <div>
+                        <span>Hero</span>
+                        <button class="expand-toggle"></button>
+                    </div>
+                    <ul class="sub">
+                        <li> <a href="/kitchen-sink/hero-with-cta/">Hero with CTA</a> </li>
+                        <li> <a href="/kitchen-sink/hero-without-cta/">Hero without CTA</a> </li>
+                        <li> <a href="/kitchen-sink/hero-with-pre-title/">Hero with pre-title</a> </li>
+                    </ul>
+                </li>
+                <li>
+                    <div><a href="/kitchen-sink/stats">Stats</a></div>
+                </li>
+                <li>
+                    <div><a href="/kitchen-sink/stats-slider">Stats Slider</a></div>
+                </li>
+                <li>
+                    <div><a href="/kitchen-sink/stages">Stages</a></div>
+                </li>
+                <li>
+                    <div><a href="/kitchen-sink/featured-logos">Featured Logos</a></div>
+                </li>
+                <li>
+                    <div><a href="/kitchen-sink/cta">CTA</a></div>
+                </li>
+                <li>
+                    <div><a href="/kitchen-sink/news-carousel">News Carousel</a></div>
+                </li>
+                <li>
+                    <div>
+                        <span>Vertical Slides</span>
+                        <button class="expand-toggle"></button>
+                    </div>
+                    <ul class="sub">
+                        <li>
+                            <div><a href="/kitchen-sink/vertical-slides">Plastic Problem</a></div>
+                        </li>
+                        <li>
+                            <div><a href="/kitchen-sink/vertical-slides-with-background-layer">Solution Frames</a></div>
+                        </li>                        
+                    </ul>
+                </li>                   
+                <li>
+                    <div><a href="/kitchen-sink/vacancy-listing">Vacancy Listing</a></div>
+                </li>
+                <li>
+                    <div>
+                        <span>Tabbed Content</span>
+                        <button class="expand-toggle"></button>
+                    </div>
+                    <ul class="sub">
+                        <li> <a href="/kitchen-sink/tabbed-content-left">Left Text (Default)</a> </li>
+                        <li> <a href="/kitchen-sink/tabbed-content-right">Right Text</a> </li>
+                        <li> <a href="/kitchen-sink/tabbed-content-horizontal">Circular Economy (Horizontal)</a> </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <div><a href="/kitchen-sink/about">About (Text Slider with static image)</a></div>
+                </li>
+                <li>
+                    <div>
+                        <span>Image Text</span>
+                        <button class="expand-toggle"></button>
+                    </div>
+                    <ul class="sub">
+                        <li><a href="/kitchen-sink/left-image-text">Left Image</a> </li>
+                        <li><a href="/kitchen-sink/left-image-contain">Left Image (Image Fit: contain)</a> </li>
+                        <li><a href="/kitchen-sink/right-image-text">Right Image without CTA Button</a> </li>
+                    </ul>
+                </li>
+                <li><div><a href="/kitchen-sink/tabbed-content-dark">Plastic Value Chain ( Tabbed Content Dark)</a></div></li>
+                <li><div><a href="/kitchen-sink/partnership">Partnership ( Text Multi Images ) </a></div></li>
+                <li><div><a href="/kitchen-sink/timeline">Timeline</a></div></li>
+                <li><div><a href="/kitchen-sink/the-process">The Process</a></div></li>
+                <li><div><a href="/kitchen-sink/development-plants">Development Plants ( Tabbed Content Multi Column )</a></div></li>
+                <li><div><a href="/kitchen-sink/photo-grid">Photo Grid</a></div></li>
+                <li><div><a href="/kitchen-sink/photo-grid-another-grid-mix">Photo Grid (another grid mix)</a></div></li>
+                <li><div><a href="/kitchen-sink/team">Team</a></div></li>
+            </ul>
+            
+            <h2>Populated Pages based on dummy content from Mockups</h2>
+            <ul class="root">
+                <li><div><a href="/home">Home</a></div></li>
+                <li><div><a href="/technology">Technology</a></div></li>
+                <li><div><a href="/about-us">About Us</a></div></li>
+                <li><div><a href="/partners">Partners</a></div></li>
+                <li><hr></li>
+                <li><hr></li>
+                <li><div><a href="/solutions">Solutions</a></div></li>
+                <li><div><a href="/advantages-impacts">Advantages &amp; Impacts</a></div></li>
+                <li><div><a href="/careers">Careers</a></div></li>
+                <li><div><a href="/our-people">Our People</a></div></li>
+                <li><div><a href="/team">Team</a></div></li>
+                <li><div><a href="/licensing">Licensing</a></div></li>
+                <div class="hidden">
+                    <li><div><a href="/faq">FAQ</a></div></li>
+                    <li><div><a href="/hom-alt">Home Alternate</a></div></li>
+                </div>
+            </ul>
+
+            <div class="root">
+                <h2>Post Types ready to be populated/edited in CMS but Front-end still In Progress</h2>
+                <ul class="root">
+                    <li><hr></li>
+                    <li><div><span href="/vacancy/sample-vacancy">Vacancy</span></div></li>
+                    <li><div><span href="/news/sample-article">News Article</span></div></li>
+                    <li><div><span href="/profile/sample-profile">Team Profile</span></div></li>
+                </ul>
+            </div>
+
+            <h2 style="display: none;">Sections ready to be popualted/used in CMS but Front-end still In Progress</h2>
+            <ul class="root hidden">
+                <li><div><a href="/kitchen-sink/white-papers-listing">White Papers Listing</a></div></li>
+                <li><div><a href="/kitchen-sink/faq-short-listing">FAQs Short listing</a></div></li>
+                <li><div><a href="/kitchen-sink/mega-menu">Mega Menu</a></div></li>
+            </ul>
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+    {% endblock %}
+
+ 
+    {{ function('wp_footer') }}
+
+</body>
+
+</html>

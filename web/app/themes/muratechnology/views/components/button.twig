@@ -1,0 +1,38 @@
+
+{#  Component Default Props #}
+
+{% set classes = classes ?? '' %}
+{% set accent = accent ?? 'default' %}
+{% set label = label ?? 'Find out more' %}
+{% set url = url ?? '#' %}
+{% set target = target ?? '_self'%}
+{% set type = type ?? 'link'%}
+{% set thin_button = thin_button ?? false %}
+{% set button_color = button_color %}
+
+{% if button_color == 'transparent' %}
+    {% set classes = classes ~ ' black-borders' %} 
+{% elseif button_color == 'yellow' %}
+    {% set classes = classes ~ ' bg-brand-yellow' %} 
+{% else %}
+    {% set classes = classes ~ ' bg-white black-borders' %} 
+{% endif %}
+
+{% if thin_button %}
+    {% set classes = classes ~ ' thin' %}
+{% endif %}
+
+<div>
+
+{% if type == 'link' %}
+    <a class="btn {{ classes }} accent-{{ accent }}"
+        href="{{ url }}" target="{{ target }}">
+        {{ label }}
+    </a>
+{% else %}
+    <button class="btn {{ classes }} accent-{{ accent }}>" >
+        {{ label }}
+    </button>
+{% endif %}
+
+</div>

@@ -1,0 +1,175 @@
+.tabbed-content {
+    @apply bg-brand-grey-light relative;
+    
+    // Small Laptop viewport only
+    @media (max-width: 1440px) and (max-height: 900px) {
+        height: 100vh;
+    } 
+    @media (max-width: 768px) {
+        height: auto;
+        @apply py-11;
+    }
+
+    .images-row {
+        @apply p-11 lg:p-14 xl:p-24 gap-14 xl:gap-28;
+        .swiper-pagination {
+            @apply w-2 right-6;
+            span {
+                @apply block h-7 border-l-2 border-brand-grey-darkest opacity-30 w-full rounded-none bg-transparent;
+                &.swiper-pagination-bullet-active {
+                    @apply opacity-100;
+                }
+            }
+        }
+    }
+    .overlay-row {
+        @apply absolute w-full top-0 w-6/12;
+        @apply p-11 lg:p-14 xl:p-24 gap-14 xl:gap-28;
+    }
+    .generic-text {
+        @apply mt-20;
+        .slide-title {
+            @extend .h2;
+            @apply opacity-20 cursor-pointer transition-all relative z-10 py-1;
+            &.active {
+                @apply opacity-100 cursor-default;
+            }
+        }
+        article {
+            @apply hidden mt-10;
+            &.active {
+                @apply block;
+            }
+        }
+    }
+    .mobile {
+        @apply py-11 gap-14;
+        .item {
+            @apply flex flex-col gap-5;
+            .img-wrap {
+                @apply mb-5;
+            }
+            .slide-title {
+                @apply opacity-100;
+            }
+        }
+        .generic-text {
+            @apply mt-0;
+        }
+
+    }
+    &.no-nav-bars {
+        .generic-text .slide-title.active {
+            @apply relative;
+            &:before {
+                content: " ";
+                @apply absolute block w-2 h-7 border-l-2 border-brand-black inset-y-0 -left-7 m-auto;
+            }
+        }
+    }
+    &:not(.img-text-col) {
+        .mobile {
+            .item {
+                .img-wrap {
+                    // @apply w-full aspect-w-1 aspect-h-1;
+                }
+            }
+        }
+    }
+}
+
+$slideHeight: 600px;
+.tabbed-content-slides {
+    @apply overflow-hidden h-full;
+    height: $slideHeight;
+    .img-col {
+        height: $slideHeight; 
+        // Small Laptop viewport or iPad Pro
+        @media (max-width: 1024px), (max-height: 900px) {
+            height: 500px !important;
+        }  
+    }
+    @media (min-width: 769px) and (max-height: 900px) {
+        & {
+            height: $slideHeight;
+        }
+    }
+}
+
+
+//variation
+$slideHeight2: 800px;
+.tabbed-content.img-text-col .tabbed-content-slides {
+    height: $slideHeight2;
+    .img-col {
+        @apply h-auto flex opacity-0;
+        transition: all 2s ease-in-out;
+        .wrap {
+            @apply mt-auto mb-0 ml-0 flex flex-col gap-5;
+            max-width: 350px;
+        }
+    }
+    @media (min-width: 769px) and (min-height: 900px) {
+        &, .img-col {
+            height: $slideHeight2;
+        }
+    }
+    .swiper-slide-active {
+        .img-col {
+            @apply opacity-100;
+        }
+    }
+}
+
+
+.tabbed-content.img-text-col .mobile {
+    .item {
+        .img-wrap {
+            max-width: 300px;
+            @apply relative mx-auto;
+            img {
+                @apply block w-full h-auto relative;
+            }
+        }
+    }
+}
+
+
+// all vertical sliders
+.tabbed-content, 
+.tabbed-content-dark, 
+.vertical-slides,
+.tabbed-multi-column {
+    .swiper-pagination {
+        top: 50%;
+        transform: translate3d(0px,-50%,0);
+        span {
+            margin: 6px auto;
+        }
+    }
+    div:not(.mobile) {
+        .generic-text {
+            @media (min-width: 769px) and (max-height: 900px) {
+                margin-top: 0;
+            }
+            // Small Laptop viewport or iPad Pro
+            @media (max-width: 1440px) and (max-height: 900px), (max-width: 1024px) {
+                .slide-copy {
+                    margin-top: 20px;
+                    * {
+                        font-size: 14px;
+                    }
+                }
+            } 
+        }
+    }
+    .intersect-object {
+        @apply w-full h-3 bg-transparent;
+        position: absolute;
+        left: 0;
+        bottom: 100px;
+    }
+    body.stop-scrolling & {
+        padding-right: 15px;
+    }
+}

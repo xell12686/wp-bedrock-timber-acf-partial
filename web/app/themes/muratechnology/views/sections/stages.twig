@@ -1,0 +1,72 @@
+{# Section Props #}
+{% set stages = section.stages %}
+{% set title = section.title  %}
+{% set pre_title = section.pre_title  %}
+{% set copy = section.copy ?? null %}
+{% set button_label = section.button_label ?? null  %}
+{% set button_link = section.button_link ?? null  %}
+{% set button_color = section.button_color %}
+
+<section class="stages">
+
+    <div class="intro">
+        <div class="grid grid-cols-12 align-baseline h-full gap-5">
+            <div class="col-span-12 md:col-span-4">
+                {% if pre_title %}
+                    <span class="pre-title">{{ pre_title }}</span>
+                {% endif %}
+                {% if title %}
+                    <h2 class="uppercase">{{ title }}</h2>
+                {% endif %}
+            </div>
+            <div class="col-span-12 md:col-start-7 md:col-end-12 justify-end flex flex-col gap-5">
+                {% if copy %}
+                    <p class="max-w-2xl">{{ copy }} </p>
+                {% endif %}
+                {% if button_label %}
+                    {{ include('components/button.twig', { 
+                        label: button_label, 
+                        classes: 'btn-arrow thin ', 
+                        url: button_link,
+                        button_color: button_color
+                    }) }}                
+                {% endif %}            
+            </div>
+        </div>
+
+    </div>
+ 
+    <div class="panels hidden {{ (stages|length > 3) ? 'xl:flex' : 'md:flex' }}">
+        {% for stage in stages %}
+
+            <div class="panel-item">
+                <div class="text">
+                    <div class="count-title">
+                        <span class="count">{{ stage.value }}</span>
+                        <span class="title">{{ stage.label }}</span>
+                    </div>
+                    <div class="copy">{{ stage.copy }}</div>
+                </div>
+            </div>
+            
+        {% endfor %}
+    </div>
+
+    <div class="stages-slider block {{ (stages|length > 3) ? 'xl:hidden' : 'md:hidden' }}">
+
+        <div class="stages-nav">
+            {% for stage in stages %}
+                <span class="count {% if loop.index == 1 %} active {% endif %}" data-slide="{{ loop.index }}">{{ stage.value}}</span>
+            {% endfor %}
+        </div>
+        <div class="stages-text">
+            {% for stage in stages %}
+                <div class="text {% if loop.index == 1 %} active {% endif %}" data-slide="{{ loop.index }}">
+                    <span class="title">{{ stage.label}}</span>
+                    <div class="copy">{{ stage.copy }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,11 @@
+.mini-cta {
+    @apply flex flex-col gap-10 justify-start;
+    .img-wrap {
+        max-width: 200px;
+        height: 100px;
+    }
+    .btn {
+        max-width: none;
+        @apply inline-block;
+    }
+}

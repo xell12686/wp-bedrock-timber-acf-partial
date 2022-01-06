@@ -1,0 +1,148 @@
+.timeline {
+    @apply bg-brand-brown-darkest relative text-white px-8 py-9 lg:p-20 overflow-hidden;
+    min-height: 700px;
+    .background {
+        @apply w-full h-auto inset-0 mx-auto opacity-70;
+        top: -100px;
+        @media (max-width: 768px) {
+            @apply hidden;
+        }
+    }
+    .heading {
+        @media (max-width: 768px) {
+            max-width: 80%;
+        }
+    }
+    .center-line {
+        @apply w-full rounded-full absolute inset-0 my-auto;
+        height: 8px;
+        background: linear-gradient(to right, #f8ab16 0%,#f2e500 100%);
+    }
+    .items {
+        .item {
+            @apply h-full flex place-items-start relative justify-end;
+            cursor: grab;
+
+            .line {
+                @apply absolute bg-brand-yellow;
+            }
+            .pin {
+                @apply bg-cover absolute m-auto inset-0 h-9 w-9;
+                background-image: url(../img/timeline-pin.png);
+            }
+            .year {
+                @apply text-brand-orange font-medium text-xl tracking-wider;
+            }
+            .copy {
+                @apply text-white text-lg text-sm relative;
+            }
+    
+            
+            &:nth-child(1) .line { background: #F7BA11;}
+            &:nth-child(2) .line { background: #F8B114;}
+            &:nth-child(3) .line { background: #F7BA11;}
+            &:nth-child(4) .line { background: #F6C30D;}
+            &:nth-child(5) .line { background: #F5CC0A;}
+            &:nth-child(6) .line { background: #F4D506;}
+        }
+    }    
+}
+
+$barHeight: 500px;
+.horizontal-scroller {
+    @apply relative w-full overflow-hidden mb-20;
+    height: $barHeight;
+    margin-left: 10vw;
+    .timeline-swiper {
+        @apply h-full cursor-pointer;
+        margin-right: 200px;
+        .items {
+            .item {
+                width: 300px;
+                .line {
+                    @apply h-1/2 rounded inset-x-0 mx-auto top-0;
+                    width: 4px;
+                    transform: translate(-1px, 0);
+                }
+                .year {
+                    @apply inline-block absolute inset-x-0 mx-auto font-medium;
+                    width: 45px;
+                    top: calc(50% + 20px);
+                }
+                .copy {
+                    width: calc(70% + 0px);
+                    right: -25%;
+                }
+                &:nth-child(even) {
+                    @apply place-items-end;
+                    .line {
+                        @apply top-auto bottom-0;
+                    }
+                    .year {
+                        @apply top-auto;
+                        bottom: calc(50% + 20px);
+                    }
+                }
+                @media (max-width: 1280px) {
+                    width: 250px;
+                }               
+                @media (max-width: 1024px) {
+                    width: 250px;
+                }               
+            }
+        }
+    }
+
+}
+
+
+.vertical-timeline {
+    @apply w-full relative mb-20;
+    .center-line {
+        @apply h-full mx-auto;
+        width: 8px; 
+    }
+    .items {
+        > .item {
+            @apply block place-items-center;
+            height: 230px;
+            .line {
+                @apply w-1/2 right-0 inset-y-0 my-auto;
+                height: 4px;
+            }
+            .pin {
+                @apply bg-cover absolute m-auto inset-0 h-9 w-9;
+            }
+            .year {
+                @apply text-brand-orange font-medium text-xl tracking-wider;
+                @apply inline-block absolute inset-y-0 my-auto;
+                top: calc(50% - 15px);
+                width: 45px;
+                left: calc(50% - 80px);
+            }
+            .copy {
+                @apply absolute left-auto;
+                top: calc(50% + 15px);
+                width: calc(30% - 0px);
+                right: 0;
+            }
+            &:nth-child(even) {
+                .line {
+                    @apply right-auto left-0;
+                }
+                .year {
+                    @apply left-auto;
+                    right: calc(50% - 80px);
+                }
+                .copy {
+                    @apply right-auto left-0;
+                }
+            }
+            @media (max-width: 500px) {
+                .copy {
+                    width: 45%;
+                }
+            }
+        }
+    }
+}

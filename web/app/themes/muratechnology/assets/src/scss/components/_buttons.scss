@@ -1,0 +1,124 @@
+
+.btn {
+    padding: 5px 15px;
+    @apply font-semibold inline-block border border-brand-black text-xs text-center uppercase px-4 py-2;
+    transition: all .5s ease-in-out;
+    &:before {
+        transition: all .5s ease-in-out;
+    }
+    &:after {
+        transition: all 1s ease-in-out;
+        @apply opacity-0;
+    }
+
+    &:hover {
+        @apply bg-brand-yellow border-brand-yellow;
+        &:after {
+            @apply opacity-100;
+        }
+    }
+
+    // Variants
+    
+    &-play {
+        @apply w-12 lg:w-16;
+        svg {
+            @apply block max-w-full;
+            path {
+                transition: all .5s ease-in-out;;
+            }
+        }
+        &:hover {
+            svg {
+                path {
+                    @apply fill-current text-brand-orange;
+                }
+            } 
+        } 
+    }
+
+    &.btn-arrow {
+        @apply px-7 py-3 pl-16 relative;
+        &:before {
+            @apply absolute w-10 h-full border-r bg-no-repeat bg-center block left-0 top-0 border-brand-black;
+            content: "";
+            background-image: url(../img/caret-right.svg);
+            background-size: 6px;
+            
+        }
+        &:after {
+            @apply absolute w-10 h-full border-r bg-no-repeat bg-center hidden left-0 top-0 border-white;
+            @apply block opacity-0;
+            content: " ";
+            background-image: url(../img/triangle-right.svg);
+            background-size: 6px;
+        }
+        &:hover {
+            &:before {
+                @apply hidden;
+            }
+            &:after {
+                @apply opacity-100;
+            }
+        }
+
+    }
+
+    &-rounded {
+        @apply rounded rounded-full;
+    }
+
+    &.bg-brand-yellow {
+        @apply border-brand-yellow border-brand-yellow;
+        &:before {
+            @apply border-white;
+        }        
+        &:hover {
+            @apply bg-white border-brand-black;
+            &:before {
+                @apply hidden;
+            }
+            &:after {
+                @apply opacity-100 border-brand-black;
+            }
+        }
+    }
+
+    &.black-borders {
+        @apply border-brand-black;
+        &:before {
+            @apply border-brand-black;
+        }
+        &:hover {
+            @apply bg-white border-brand-black;
+            &:before {
+                @apply hidden;
+            }
+            &:after {
+                @apply opacity-100 border-brand-black;
+            }
+        }
+    }
+
+    &.thin {
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+}
+
+
+//swiper nav buttons
+.swiper-nav {
+    > button {
+        &:hover {
+            transition: all .5s ease-in-out;
+            @apply bg-brand-yellow border-brand-yellow #{!important};
+        }  
+    }
+    @media (max-width:768px) {
+        @apply gap-2;
+        > button {
+            @apply w-8 h-8;
+        }
+    }
+}

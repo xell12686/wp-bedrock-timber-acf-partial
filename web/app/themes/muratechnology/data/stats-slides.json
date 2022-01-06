@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "title": "00<sup>%</sup>",
+        "text": "Room for a statistic for<br /> more impact ",
+        "image": "../assets/dist/img/stock/slide-1.jpg"
+    },
+    {
+        "id": 2,
+        "title": "13<sup>%</sup>",
+        "text": "Lorem ipsum dolor sit amet",
+        "image": "../assets/dist/img/stock/hero-bg-1.jpg"
+    },
+    {
+        "id": 3,
+        "title": "30<sup>%</sup>",
+        "text": "Duis lacinia, eros vel hendrerit egestas, nisi sem blandit ante,",
+        "image": "../assets/dist/img/stock/hero-bg-2.jpg"
+    },
+    {
+        "id": 4,
+        "title": "90<sup>%</sup>",
+        "text": "Maecenas a lacus mauris. In at libero dolor, Duis lacinia, eros vel hendrerit egestas, nisi sem blandit ante, ut porta nunc. Nulla hendrerit varius sem id commodo.",
+        "image": "../assets/dist/img/stock/hero-bg-3.jpg"
+    }
+
+]

@@ -1,0 +1,12 @@
+{# Section Props #}
+{% set wysiwyg = section.wysiwyg %}
+
+<section class="wysiwyg">
+    <div class="container">
+        <div class="content grid grid-cols-12 py-16 lg:py-20">
+            <div class="generic-text col-span-full">
+                {{ wysiwyg }}
+            </div>
+        </div>
+    </div>
+</section>

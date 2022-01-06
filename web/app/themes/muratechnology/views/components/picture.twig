@@ -1,0 +1,41 @@
+{# 
+    
+Component Default Props 
+
+Responsive Image Dimensions:
+Desktop: add_image_size( 'desktop', 1600, 1600, false );
+Tablet: add_image_size( 'tablet', 1024, 1024, false );
+Mobile: add_image_size( 'phone', 640, 640, false );
+#}
+
+{% set classes = classes ?? 'object-cover object-center w-full h-full' %}
+{% set image_url = image_url ?? asset('img/stock/hero-bg-3.jpg') %}
+{% set max_medium = max_medium ?? false %}
+{% set max_small = max_small ?? false %}
+
+{% if image_alt|trim is empty %} 
+    {% set image_alt = 'Background Image' %}
+{% else %}
+    {% set image_alt = image_alt %}
+{% endif %}
+
+<picture>
+    {% if max_small %}
+        <source srcset="{{ image_url|towebp|resize(640) }}" type="image/webp" />
+        <img src="{{ image_url|tojpg|resize(640) }}" alt="{{ image_alt }}" class="{{ classes }}" />
+    {% elseif max_medium %}
+        <source srcset="{{ image_url|towebp|resize(1024) }}" type="image/webp" media="(min-width: 641px)" />
+        <source srcset="{{ image_url|towebp|resize(640) }}" type="image/webp" media="(max-width: 640px)" />
+        <source srcset="{{ image_url|tojpg|resize(1024) }}" type="image/jpeg" media="(min-width: 641px)" />
+        <source srcset="{{ image_url|tojpg|resize(640) }}" type="image/jpeg" media="(max-width: 640px)" />        
+        <img src="{{ image_url|tojpg|resize(1024) }}" alt="{{ image_alt }}" class="{{ classes }}" />
+    {% else %}
+        <source srcset="{{ image_url|towebp|resize(1600) }}" type="image/webp" media="(min-width: 1025px)" />
+        <source srcset="{{ image_url|towebp|resize(1024) }}" type="image/webp" media="(max-width: 1024px)" />
+        <source srcset="{{ image_url|towebp|resize(640) }}" type="image/webp" media="(max-width: 640px)" />
+        <source srcset="{{ image_url|tojpg|resize(1600) }}" type="image/jpeg" media="(min-width: 1025px)" />
+        <source srcset="{{ image_url|tojpg|resize(1024) }}" type="image/jpeg" media="(max-width: 1024px)" />
+        <source srcset="{{ image_url|tojpg|resize(640) }}" type="image/jpeg" media="(max-width: 640px)" />
+        <img src="{{ image_url|tojpg|resize(1600) }}" alt="{{ image_alt }}" class="{{ classes }}" />
+    {% endif %}
+</picture>

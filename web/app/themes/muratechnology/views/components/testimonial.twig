@@ -1,0 +1,32 @@
+
+{#  Component Default Props #}
+
+{% set classes = classes ?? '' %}
+{% set accent = accent ?? 'default' %}
+{% set avatar = avatar ?? '' %}
+{% set quote = quote ?? '' %}
+{% set name = name ?? '' %}
+{% set position = position ?? '#' %}
+
+<div class="testimonial {{ classes }}" >
+    
+    <div class="quote">
+        {{ quote }}
+    </div>
+
+    <div class="author">
+        <div class="avatar">
+            {% if avatar %}
+                {{ include('components/picture.twig', { 
+                    max_small: true,
+                    image_url: avatar.url,
+                    classes: 'object-cover object-top w-full'
+                }) }}
+            {% endif %}
+        </div>
+        <div class="text">
+            <h3>{{ name }}</h3>
+            <div class="position">{{ position }}</div>
+        </div>
+    </div>
+</div>

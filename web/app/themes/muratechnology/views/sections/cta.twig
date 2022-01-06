@@ -1,0 +1,35 @@
+{# Section Props #}
+{% set background = section.background %}
+{% set space_around_image = section.space_around_image ?? false %}
+{% set bg_color = section.bg_color ?? '#F2E500' %}
+{% set button_label = section.button_label %}
+{% set button_link = section.button_link %}
+{% set button_color = section.button_color %}
+{% set title = section.title ?? '' %}
+{% set copy = section.copy ?? '' %}
+
+<section class="cta {{ space_around_image ? 'space-around-image' : '' }}" style="background-color:{{ bg_color }}">
+    <div class="content grid grid-cols-12">
+        <div class="img-col col-span-12 md:col-span-4">
+            {{ include('components/picture.twig', { 
+                classes: 'object-cover object-center h-full w-full', 
+                image_url: background.url, 
+                image_alt: background.alt,
+            }) }}
+        </div>
+
+        <div class="text-col col-span-12 md:col-span-8 content-center self-center">
+            <div class="text-wrap generic-text">
+                <h2>{{ title }}</h2>
+                <p>{{ copy }}</p>
+
+                {{ include('components/button.twig', { 
+                    label: button.label, 
+                    classes: 'btn-arrow thin ', 
+                    url: link,
+                    button_color: button_color
+                }) }}
+            </div>
+        </div>
+    </div>
+</section>

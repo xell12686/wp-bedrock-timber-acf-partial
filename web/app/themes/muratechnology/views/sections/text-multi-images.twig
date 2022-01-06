@@ -1,0 +1,45 @@
+{# Section Props #}
+{% set images = section.images %}
+{% set title = section.title %}
+{% set copy = section.copy %}
+{% set button_label = section.button_label %}
+{% set button_link = section.button_link %}
+{% set right_images = section.right_images ?? false %}
+
+<section class="text-mutl-images bg-white">
+    <div class="content container grid grid-cols-12">
+        <div class="img-col col-span-12 md:col-span-5 {{ right_images ? 'md:order-last justify-center' : 'justify-end' }}">
+            <div class="wrap">
+                {% for image in images %}
+                    <div class="img-wrap pt-8 pb-8" style="width:{{ image.image_width }}%">
+                        {{ include('components/picture.twig', { 
+                            max_small: true,
+                            image_url: image.image.url,
+                            image_alt: image.image.alt,
+                            classes: 'block w-full h-auto'   
+                        }) }}    
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="text-col col-span-12 md:col-span-7 content-center self-center">
+            <div class="text-wrap generic-text max-w-xl">
+                <h2>{{ title }}</h2>
+                {% if copy %}
+                    <div class="block mb-11">
+                        {{ copy }}
+                    </div>
+                {% endif %}
+                {% if button_label %}
+                    {{ include('components/button.twig', { 
+                        label: button_label, 
+                        classes: 'btn-arrow thin', 
+                        url: button_link
+                    }) }}                
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+

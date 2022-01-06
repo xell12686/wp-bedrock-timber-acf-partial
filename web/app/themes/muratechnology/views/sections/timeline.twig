@@ -1,0 +1,40 @@
+{# Section Props #}
+{% set heading = section.heading %}
+{% set entries = section.entries %}
+
+<section class="timeline">
+    {{ include('components/picture.twig', { 
+        image_url: asset('img/half-rings.png'),
+        classes: 'background absolute'   
+    }) }}    
+    <h2 class="heading mb-10 lg:mb-20 uppercase">{{ heading }}</h2>
+    <div class="horizontal-scroller hidden md:block">
+        <div class="center-line"></div>
+        <div class="timeline-swiper">
+            <div class="swiper-wrapper items">
+                {% for entry in entries %}
+                    <div class="item swiper-slide">
+                        <div class="line"></div>
+                        <div class="pin"></div>
+                        <span class="year">{{ entry.year }}</span>
+                        <span class="copy">{{ entry.label }}</span>
+                    </div>    
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile vertical-timeline md:hidden">
+        <div class="center-line"></div>
+        <div class="items">
+            {% for entry in entries %}
+                <div class="item swiper-slide">
+                    <div class="line"></div>
+                    <div class="pin"></div>
+                    <span class="year">{{ entry.year }}</span>
+                    <span class="copy">{{ entry.label }}</span>
+                </div>    
+            {% endfor %}
+        </div>
+    </div>
+</section>

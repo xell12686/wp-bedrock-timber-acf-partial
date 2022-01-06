@@ -1,0 +1,48 @@
+{# Section Props #}
+
+{% set boxes = section.boxes %}
+
+
+    
+
+<section class="photo-grid">
+    <div class="items">
+        {% for box in boxes %}
+            <div class="item {{ box.wide_box ? 'wide' : '' }} {{ box.video ? 'has-video' : '' }}"  {% if box.color %} style="background-color:{{ box.color }}" {% endif %}>
+                {% if box.set_image %}
+                    {{ include('components/picture.twig', { 
+                        classes: 'background', 
+                        max_small: true,
+                        image_url: box.image.url
+                    }) }}
+                {% endif %}
+                
+                {% if box.video %}
+                    {% set attr = {
+                        'mp4' : box.video.url,
+                        'preload' : 'auto',
+                        'muted': 'true',
+                        'class' : 'video-element'
+                    } %}
+                    <div class="video-box">
+                        <div class="video-wrap">
+                        {{ fn('wp_video_shortcode', attr ) }}
+                        </div>
+                    </div>
+                {% endif %}                
+                
+                <div class="text text-{{ box.text_color }}">
+                    {% if box.pre_title %}
+                        <span>{{ box.pre_title }}</span>
+                    {% endif %}
+                    <h3>{{ box.label }}
+                        {% if box.copy %}<span class="tooltip-icon"><span class="tooltip-text">{{ box.copy }}</span></span>{% endif %}
+                    </h3>
+
+                </div>
+
+            </div>    
+        {% endfor %}
+    </div>
+</section>
+
